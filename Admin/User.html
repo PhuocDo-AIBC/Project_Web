@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preload" href="https://web.nvnstatic.net/tp/T0307/font/Quicksand-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel = "stylesheet", href="../Fonts/fontawesome-free-6.4.2-web/css/all.min.css ">
+    <title>Admin</title>
+</head>
+<body>
+    <div class ="main__body">
+        <div class = "header">
+            <a href ="#" class ="logo"><img src ="../Image/logo.png"><span>Administrator</span></a>
+        </div>
+        <div class = "container">
+            
+            <div class = "container__main">
+                <div class ="container__title">Tài khoản</div>
+                <div class ="container__table">
+                    <table id = "user-list"></table>
+                </div>
+            </div>
+
+            <div class = "container__main">
+                <div class ="container__title">Đơn hàng</div>
+                <div class ="container__table">
+                    <table id = "confirm-order"></table>
+                </div>
+            </div>
+
+            <div class = "container__main">
+                <div class = "container__title">Sản phẩm</div>
+                <div class = "container__table">
+                    <table id = "product-list"></table>
+                </div>
+            </div>
+
+            <div class = "button__Admin">
+                <button type = "button">Thêm thể loại</button>
+                <button type = "button">Thêm sản phẩm</button>
+            </div>
+        </div>
+
+        <!--form thêm sản phẩm-->
+        <div class = "AddProduct__main">
+            <a href ="#" class = "AddProduct__header">Thêm sản phẩm</a>\
+
+            <div class ="close__button">
+                <i class="fas fa-times"></i>
+            </div> 
+
+            <form>
+                <div class = "AddProduct__body">
+                    <input type = "text" placeholder="Nhập vào tên sản phẩm" required>
+                    <input type = "number" placeholder="Nhập vào giá sản phẩm (VND)" required>
+                    <select name = "option"></select>
+                    <input type = "file" required>
+                    <button type = "button">Thêm</button>
+                </div>
+            </form>
+        </div>
+
+        <!--form thêm loại sản phẩm-->
+        <div class = "AddTypeProduct__main">
+            <a href ="#" class = "AddTypeProduct__header">Thêm loại sản phẩm</a>\
+
+            <div class ="close__button">
+                <i class="fas fa-times"></i>
+            </div> 
+
+            <form>
+                <div class ="AddTypeProduct__body">
+                    <input  type="text" placeholder="Nhập id thể loại"required>
+                    <input type="text"  placeholder="Nhập tên thể loại"required>
+                    <button type="button" >Thêm</button>
+                </div>
+            </form>
+        </div>
+
+        <!--form sửa thông tin sản phẩm-->
+        <div class = "ChangeProduct__main">
+            <a href ="#" class = "ChangeProduct__header">Sửa sản phẩm</a>\
+
+            <div class ="close__button">
+                <i class="fas fa-times"></i>
+            </div> 
+
+            <form>
+                <div class ="ChangeProduct_body">
+                    <input type="text"placeholder="Nhập vào tên sản phẩm" required>
+                    <input  type="number" placeholder="Nhập vào giá sản phẩm (VNĐ)" required>
+                    <select  name="option"></select>
+                    <input type="file" required>
+                    <button type="button" >Thay đổi</button>
+                </div>
+            </form>
+        </div>
+
+        <!--form xác nhận thông tin sản phẩm-->
+        <div class = "ConFirmListCart__main">
+            <a href ="#" class = "ConFirmListCart__header">Xác nhận sản phẩm</a>\
+
+            <div class ="close__button">
+                <i class="fas fa-times"></i>
+            </div> 
+
+            <!--in ra sản phẩm của người mua-->
+            <div class = "container__table">
+                <table></table>
+            </div>
+            <button type = "button">Hủy đơn</button>
+            <button type = "button">Chấp nhận đơn hàng</button>
+        </div>
+    </div>
+</body>
+</html>
