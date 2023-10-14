@@ -1,46 +1,93 @@
-.header { 
-    background-color: #fff;
-    position: fixed;
-    top : 0;
-    right: 0;
-    left: 0;
-    box-shadow: 0 2px 12px #ccc; 
-    z-index: 999;
-}
-.logo {  
-    padding-left: 30px;
+.header {
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  box-shadow: 0 2px 12px #ccc;
+  z-index: 999;
+  height: 120px;
 }
 .header__content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;   
+  width: 1170px;
+  max-width: calc(100% - 48px);
+  margin-left: auto;
+  margin-right: auto;
 }
-.header__list{
-    white-space: nowrap;
-    position: relative;
-    display: flex;
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 35px;
 }
-.header__list__item{
-    color: var(--text__color);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1.3rem;
-    padding: 0 12px;
-    margin: 0 4px;
-}
-.header__list__item:hover{
-    color: #9fbb62
-}
-.header__list__item:nth-child(4):hover {
-    color: var(--text__color);
+.header__list {
+  display: flex;
+  margin-left: 30px;
 }
 
-.header__mobile__btn{
-    display: none;
-    font-size: 2rem;
-    padding: 0 28px;
-    position: absolute;
-    right: 0;
-    top: 0;
+.header__item a {
+  color: #212529;
+  font-size: 14px;
+  text-align: left;
+  padding: 0px 15px;
+}
+.header__item a:hover {
+  color: #91ad41;
+}
+.header__action__container {
+  display: flex;
+  justify-content: space-around;
+  margin-left: auto;
+  flex-basis: 16.6667%;
 }
 
+.cout_cart {
+  position: absolute;
+  top: -14px;
+  background-color: #91ad41;
+  right: -15px;
+  border-radius: 50%;
+  line-height: 25px;
+  width: 25px;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+}
+.action__cart-bag {
+  position: relative;
+}
+
+.sanpham__list {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.sanpham_item a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.header__item:hover .sanpham__list {
+  display: block;
+}
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: -8px;
+  vertical-align: middle;
+  border-top: 5px solid;
+  border-right: 4.5px solid transparent;
+  border-left: 4.5px solid transparent;
+  color: #21252930;
+}
+.header__panel {
+  padding-top: 120px;
+}
