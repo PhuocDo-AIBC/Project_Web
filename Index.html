@@ -1,192 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="preload" href="https://web.nvnstatic.net/tp/T0307/font/Quicksand-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
-    <link rel = "stylesheet", href="Fonts/fontawesome-free-6.4.2-web/css/all.min.css ">
+    <link
+      rel="preload"
+      href="https://web.nvnstatic.net/tp/T0307/font/Quicksand-VariableFont_wght.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="stylesheet"
+      ,
+      href="Fonts/fontawesome-free-6.4.2-web/css/all.min.css "
+    />
     <!-- CSS Base-->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel = "stylesheet", href="css/header.css">
-   
-    <title>Vermouth</title>
-</head>
-<body>  
-    <div class = "main__body">
-        <!--Phần header-->
-        <div class = "header header__content">  
-            <a href="#" class="logo"><img src="Image/logo.png" alt="Logo"></a>
-            <div class="header__list">
-                <nav>
-                    <a href="#" class ="header__list__item">Trang chủ</a>
-                    <a href="#" class="header__list__item">Sản phẩm</a>
-                    <a href="#" class="header__list__item">Giỏ hàng</a>
-                    <a href="#" class="header__list__item">
-                        <i class="header-user--icon far fa-user"></i>
-                        Tài khoản
-                    </a>
-                </nav>
-            </div>
-            <div class="header__mobile__btn">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-        <!--Phần container-->
-        <div class = "container">
-            <!--Trang chủ-->
-            <div class ="container__Introduce">
-                <div class = "Introduce__Background">
-                </div>
-                <div class = "Introduce__Menu">
-                    <div class = "Introduce__Menu__Content  One">
-                        <p class ="Introduce__Menu__Content__Title">Rau củ xanh</p>
-                        <p class ="Introduce__Menu__Content__Contents">Chúng tôi cam kết 100% các sản phẩm có nguồn gốc xuất xứ rõ ràng, sạch, an toàn và đảm bảo chất lượng ngon nhất giao đến tận tay người tiêu dùng, để san sẻ sự vất vả của các mẹ, các chị</p>
-                    </div>
-                    <div class = "Introduce__Menu__Content Two">
-                        <p class ="Introduce__Menu__Content__Title">Dinh dưỡng mỗi ngày</p>
-                        <p class ="Introduce__Menu__Content__Contents">Chúng tôi cam kết 100% các sản phẩm có nguồn gốc xuất xứ rõ ràng, sạch, an toàn và đảm bảo chất lượng ngon nhất giao đến tận tay người tiêu dùng, để san sẻ sự vất vả của các mẹ, các chị</p>
-                    </div>
-                    <div class = "Introduce__Menu__Content Three" >
-                        <p class ="Introduce__Menu__Content__Title">Thực phẩm tươi</p>
-                        <p class ="Introduce__Menu__Content__Contents">Chúng tôi cam kết 100% các sản phẩm có nguồn gốc xuất xứ rõ ràng, sạch, an toàn và đảm bảo chất lượng ngon nhất giao đến tận tay người tiêu dùng, để san sẻ sự vất vả của các mẹ, các chị</p>
-                    </div>
-                    <div class = "Introduce__Menu__Content Four">
-                        <p class ="Introduce__Menu__Content__Title">Hoa quả sạch</p>
-                        <p class ="Introduce__Menu__Content__Contents">Chúng tôi cam kết 100% các sản phẩm có nguồn gốc xuất xứ rõ ràng, sạch, an toàn và đảm bảo chất lượng ngon nhất giao đến tận tay người tiêu dùng, để san sẻ sự vất vả của các mẹ, các chị</p>
-                    </div>
-                </div>
-                <div class = "Introduce__We">
-                    <div class ="Introduce__We__Title">Về chúng tôi</div>
-                    <div class ="Introduce__We__Content">
-                        <p class ="Introduce__We__Content__Title">Trang trại hữu cơ</p>
-                        <p class ="Introduce__We__Content__Contents">Cung cấp 100% thực phẩm sạch đảm bảo an toàn và ngon nhất</p>
-                    </div>
-                    <div class ="Introduce__We__Content">
-                        <p class ="Introduce__We__Content__Title">Thực phẩm sạch</p>
-                        <p class ="Introduce__We__Content__Contents">Cung cấp 100% thực phẩm sạch đảm bảo an toàn và ngon nhất</p>
-                    </div>
-                    <div class ="Introduce__We__Content">
-                        <p class ="Introduce__We__Content__Title">An toàn sinh học</p>
-                        <p class ="Introduce__We__Content__Contents">Cung cấp 100% thực phẩm sạch đảm bảo an toàn và ngon nhất</p>
-                    </div>
-                    <div class ="Introduce__We__Content">
-                        <p class ="Introduce__We__Content__Title">Đa dạng sinh học</p>
-                        <p class ="Introduce__We__Content__Contents">Cung cấp 100% thực phẩm sạch đảm bảo an toàn và ngon nhất</p>
-                    </div>
-                </div>
-                <!--Sản phẩm-->
-                <div class="container__Product">
-                    <div class="container__Product__Search">
-                        <h3>Tìm kiếm</h3>
-                        <form> 
-                            <input type="text" placeholder="Tìm kiếm">
-                            <button type="button">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </form>
-                    </div>
-                    <div>
-                        <h3>Danh mục</h3>
-                        <ul>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" , href="css/header.css" />
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="css/reset.css" />
 
-                        </ul>
-                    </div>
-                </div>
-                <!--Giỏ hàng-->
-                <div class="container__Cart">
-                    <div>
-                        <img src="Image/Cart_is_empty.jpg" alt = "">
-                    </div>
-                </div>
-                <!--Phần footer-->
-                <div class="Footer">
-                    <div class="logo">
-                        <a href="#"><img src="Image/logo.png" alt="Logo"></a>
-                    </div>
-                    <div class="Footer__Contact">
-                        <ul>
-                            <li><i class="fa-solid fa-location-dot"></i><span>30 Phạm Văn Đồng Cầu Giấy, Hà Nội</span></li>
-                            <li><i class="fa fa-mobile" aria-hidden="true"></i><span>1900.2812</span></li>
-                            <li><i class="fa-solid fa-envelope"></i><span>abctheme205@gmail.com</span></li>
-                        </ul>
-                    </div>
-                    <div class="Footer__footer">
-                        <h4 class = "Footer__footer__heading">Cẩm nang sử dụng</h4>
-                            <ul>
-                                <li class = "Footer__footer__item"><a href="#">Trang chủ</a></li>
-                                <li class = "Footer__footer__item"><a href="#">Giới thiệu</a></li>
-                                <li class = "Footer__footer__item"><a href="#">Sản phẩm</a></li>
-                            </ul>
-                    </div>
-                    <div class ="Footer_footer">
-                        <h4 class = "Footer__footer__heading">Chính sách</h4>
-                        <ul>
-                            <li class = "Footer__footer__item"><a href="#">Trang chủ</a></li>
-                            <li class = "Footer__footer__item"><a href="#">Giới thiệu</a></li>
-                            <li class = "Footer__footer__item"><a href="#">Sản phẩm</a></li>
-                        </ul>
-                    </div>
-                    <div class ="Footer_footer">
-                        <h4 class = "Footer__footer__heading">Dịch vụ</h4>
-                        <ul>
-                            <li class = "Footer__footer__item"><a href="#">Trang chủ</a></li>
-                            <li class = "Footer__footer__item"><a href="#">Giới thiệu</a></li>
-                            <li class = "Footer__footer__item"><a href="#">Sản phẩm</a></li>
-                        </ul>
-                    </div>
-                </div>
+    <title>Vermouth</title>
+  </head>
+  <body>
+    <div class="main__body">
+      <!--Phần header-->
+      <header class="header">
+        <div class="header__content">
+          <nav class="navbar">
+            <!-- Logo -->
+            <a href="#"
+              ><img class="header__logo__img" src="Image/logo.png" alt=""
+            /></a>
+            <!-- Navigation -->
+            <ul class="header__list">
+              <li class="header__item"><a href="#">Trang chủ</a></li>
+              <li class="header__item">
+                <a href="#">Sản Phẩm</a>
+                <span class="caret"></span>
+                <ul class="sanpham__list">
+                  <li class="sanpham_item"><a href="#">Rau củ</a></li>
+                  <li class="sanpham_item"><a href="#">Hoa quả tươi</a></li>
+                  <li class="sanpham_item">
+                    <a href="#">Thực phẩm tươi sống</a>
+                  </li>
+                  <li class="sanpham_item"><a href="#">Ngũ cốc</a></li>
+                </ul>
+              </li>
+              <li class="header__item"><a href="#">Tin tức</a></li>
+              <li class="header__item"><a href="#">Liên hệ</a></li>
+              <li class="header__item"><a href="#">Sale up To 50%</a></li>
+            </ul>
+            <!-- Action -->
+            <div class="header__action__container">
+              <div class="action__cart-bag">
+                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                <span class="cout_cart">0</span>
+              </div>
+              <div class="action__user">
+                <i class="fa fa-user-plus" aria-hidden="true"></i>
+              </div>
+              <div class="action_search">
+                <i
+                  class="fa fa-search iconSearchDesktop"
+                  aria-hidden="true"
+                  data-metatip="true"
+                ></i>
+              </div>
             </div>
+          </nav>
+          </div>
         </div>
+        <div class="header__panel" style="max-width:1000vh">
+            <img class="mySlides" src="Image/Panel_slide/slide_1.webp" style="width:100%">
+            <img class="mySlides" src="Image/Panel_slide/slide_2.png" style="width:100%">
+          </div>
+          <script>
+            var myIndex = 0;
+            carousel();
+                    
+            function carousel() {
+              var i;
+              var x = document.getElementsByClassName("mySlides");
+              for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+              }
+              myIndex++;
+              if (myIndex > x.length) { myIndex = 1; }
+              x[myIndex - 1].style.display = "block";
+              setTimeout(carousel, 4000); // Change image every 4 seconds
+}
+
+            </script>
+      </header>
+      <!--Phần container-->
+      <div class="container">
+        <!--Trang chủ-->
+        <div class="container__Introduce">
+          <div class="Introduce__Background"></div>
+          <div class="Introduce__Menu">
+            <div class="Introduce__Menu__Content One">
+              <p class="Introduce__Menu__Content__Title">Rau củ xanh</p>
+              <p class="Introduce__Menu__Content__Contents">
+                Chúng tôi cam kết 100% các sản phẩm có nguồn gốc xuất xứ rõ
+                ràng, sạch, an toàn và đảm bảo chất lượng ngon nhất giao đến tận
+                tay người tiêu dùng, để san sẻ sự vất vả của các mẹ, các chị
+              </p>
+            </div>
+            <div class="Introduce__Menu__Content Two">
+              <p class="Introduce__Menu__Content__Title">Dinh dưỡng mỗi ngày</p>
+              <p class="Introduce__Menu__Content__Contents">
+                Chúng tôi cam kết 100% các sản phẩm có nguồn gốc xuất xứ rõ
+                ràng, sạch, an toàn và đảm bảo chất lượng ngon nhất giao đến tận
+                tay người tiêu dùng, để san sẻ sự vất vả của các mẹ, các chị
+              </p>
+            </div>
+            <div class="Introduce__Menu__Content Three">
+              <p class="Introduce__Menu__Content__Title">Thực phẩm tươi</p>
+              <p class="Introduce__Menu__Content__Contents">
+                Chúng tôi cam kết 100% các sản phẩm có nguồn gốc xuất xứ rõ
+                ràng, sạch, an toàn và đảm bảo chất lượng ngon nhất giao đến tận
+                tay người tiêu dùng, để san sẻ sự vất vả của các mẹ, các chị
+              </p>
+            </div>
+            <div class="Introduce__Menu__Content Four">
+              <p class="Introduce__Menu__Content__Title">Hoa quả sạch</p>
+              <p class="Introduce__Menu__Content__Contents">
+                Chúng tôi cam kết 100% các sản phẩm có nguồn gốc xuất xứ rõ
+                ràng, sạch, an toàn và đảm bảo chất lượng ngon nhất giao đến tận
+                tay người tiêu dùng, để san sẻ sự vất vả của các mẹ, các chị
+              </p>
+            </div>
+          </div>
+          <div class="Introduce__We">
+            <div class="Introduce__We__Title">Về chúng tôi</div>
+            <div class="Introduce__We__Content">
+              <p class="Introduce__We__Content__Title">Trang trại hữu cơ</p>
+              <p class="Introduce__We__Content__Contents">
+                Cung cấp 100% thực phẩm sạch đảm bảo an toàn và ngon nhất
+              </p>
+            </div>
+            <div class="Introduce__We__Content">
+              <p class="Introduce__We__Content__Title">Thực phẩm sạch</p>
+              <p class="Introduce__We__Content__Contents">
+                Cung cấp 100% thực phẩm sạch đảm bảo an toàn và ngon nhất
+              </p>
+            </div>
+            <div class="Introduce__We__Content">
+              <p class="Introduce__We__Content__Title">An toàn sinh học</p>
+              <p class="Introduce__We__Content__Contents">
+                Cung cấp 100% thực phẩm sạch đảm bảo an toàn và ngon nhất
+              </p>
+            </div>
+            <div class="Introduce__We__Content">
+              <p class="Introduce__We__Content__Title">Đa dạng sinh học</p>
+              <p class="Introduce__We__Content__Contents">
+                Cung cấp 100% thực phẩm sạch đảm bảo an toàn và ngon nhất
+              </p>
+            </div>
+          </div>
+          <!--Sản phẩm-->
+          <div class="container__Product">
+            <div class="container__Product__Search">
+              <h3>Tìm kiếm</h3>
+              <form>
+                <input type="text" placeholder="Tìm kiếm" />
+                <button type="button">
+                  <i class="fas fa-search"></i>
+                </button>
+              </form>
+            </div>
+            <div>
+              <h3>Danh mục</h3>
+              <ul></ul>
+            </div>
+          </div>
+          <!--Giỏ hàng-->
+          <div class="container__Cart">
+            <div>
+              <img src="Image/Cart_is_empty.jpg" alt="" />
+            </div>
+          </div>
+          <!--Phần footer-->
+          <div class="Footer">
+            <div class="logo">
+              <a href="#"><img src="Image/logo.png" alt="Logo" /></a>
+            </div>
+            <div class="Footer__Contact">
+              <ul>
+                <li>
+                  <i class="fa-solid fa-location-dot"></i
+                  ><span>30 Phạm Văn Đồng Cầu Giấy, Hà Nội</span>
+                </li>
+                <li>
+                  <i class="fa fa-mobile" aria-hidden="true"></i
+                  ><span>1900.2812</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-envelope"></i
+                  ><span>abctheme205@gmail.com</span>
+                </li>
+              </ul>
+            </div>
+            <div class="Footer__footer">
+              <h4 class="Footer__footer__heading">Cẩm nang sử dụng</h4>
+              <ul>
+                <li class="Footer__footer__item"><a href="#">Trang chủ</a></li>
+                <li class="Footer__footer__item"><a href="#">Giới thiệu</a></li>
+                <li class="Footer__footer__item"><a href="#">Sản phẩm</a></li>
+              </ul>
+            </div>
+            <div class="Footer_footer">
+              <h4 class="Footer__footer__heading">Chính sách</h4>
+              <ul>
+                <li class="Footer__footer__item"><a href="#">Trang chủ</a></li>
+                <li class="Footer__footer__item"><a href="#">Giới thiệu</a></li>
+                <li class="Footer__footer__item"><a href="#">Sản phẩm</a></li>
+              </ul>
+            </div>
+            <div class="Footer_footer">
+              <h4 class="Footer__footer__heading">Dịch vụ</h4>
+              <ul>
+                <li class="Footer__footer__item"><a href="#">Trang chủ</a></li>
+                <li class="Footer__footer__item"><a href="#">Giới thiệu</a></li>
+                <li class="Footer__footer__item"><a href="#">Sản phẩm</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!--Form Register - Login-->
-    <div class = Login_Regsiter>
-        <div class ="close__button">
-            <i class="fas fa-times"></i>
-        </div> 
-        <!--Select-->
-        <div class="LR__header">
-            <div class ="LR__header__login">Đăng nhập</div>
-            <div class ="LR__header__register">Đăng kí</div>
+    <div class="Login_Regsiter">
+      <div class="close__button">
+        <i class="fas fa-times"></i>
+      </div>
+      <!--Select-->
+      <div class="LR__header">
+        <div class="LR__header__login">Đăng nhập</div>
+        <div class="LR__header__register">Đăng kí</div>
+      </div>
+      <div class="LR__container"></div>
+      <!--Login-->
+      <form>
+        <div class="LR_body">
+          <input
+            type="text"
+            placeholder="Tên đăng nhập"
+            maxlength="24"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Mật khẩu"
+            maxlength="12"
+            required
+          />
+          <input type="checkbox" /><span>Ghi nhớ mật khẩu</span>
+          <button type="button">Đăng nhập</button>
         </div>
-        <div class="LR__container"></div>
-        <!--Login-->
-        <form>
-            <div class="LR_body">
-                <input type = "text" placeholder="Tên đăng nhập" maxlength="24" required> 
-                <input type = "password" placeholder="Mật khẩu" maxlength="12" required>
-                <input type = "checkbox"><span>Ghi nhớ mật khẩu</span>
-                <button type="button">Đăng nhập</button>
-            </div>
-            <div class="LR_footer">
-                <div>
-                    <div class="border-line"></div>
-                    <div class="border-name">Hoặc</div>
-                    <div class="border-line"></div>
-                </div>
-                <ul>
-                    <li><a href="#"></a>
-                        <i class="supLogin--icon fab fa-facebook"></i>
-                        Facebook
-                    </li>
-                    <li><a href="#"></a> 
-                        <i class="supLogin--icon fab fa-google"></i>
-                        Google
-                    </li>
-                </ul>
-            </div>
-        </form>
-        <!--Register-->
-        <form>
-            <div class="LR_body">
-                <input type="email" placeholder="Nhập vào gmail" required>
-                <input type="text" placeholder="Nhập tên đăng nhập" maxlength="24" required>
-                <input type="password" placeholder="Nhập mật khẩu" maxlength="12" required>
-                <input type="password" placeholder="Nhập lại mật khẩu" maxlength="12" required>
-                <input type="checkbox"><span>Tôi đã đọc với <a href="#">điều khoản</a> và <a href="#">dịch vụ</a></span>
-                <button type="button">Đăng kí</button>
-            </div>
-        </form>
+        <div class="LR_footer">
+          <div>
+            <div class="border-line"></div>
+            <div class="border-name">Hoặc</div>
+            <div class="border-line"></div>
+          </div>
+          <ul>
+            <li>
+              <a href="#"></a>
+              <i class="supLogin--icon fab fa-facebook"></i>
+              Facebook
+            </li>
+            <li>
+              <a href="#"></a>
+              <i class="supLogin--icon fab fa-google"></i>
+              Google
+            </li>
+          </ul>
+        </div>
+      </form>
+      <!--Register-->
+      <form>
+        <div class="LR_body">
+          <input type="email" placeholder="Nhập vào gmail" required />
+          <input
+            type="text"
+            placeholder="Nhập tên đăng nhập"
+            maxlength="24"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Nhập mật khẩu"
+            maxlength="12"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Nhập lại mật khẩu"
+            maxlength="12"
+            required
+          />
+          <input type="checkbox" /><span
+            >Tôi đã đọc với <a href="#">điều khoản</a> và
+            <a href="#">dịch vụ</a></span
+          >
+          <button type="button">Đăng kí</button>
+        </div>
+      </form>
     </div>
-</body>
+  </body>
 </html>
