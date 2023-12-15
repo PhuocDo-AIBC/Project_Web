@@ -35,6 +35,38 @@
                 products[i].style.display = '';
             }
         }
+        function showDetail(openID, closeID){
+            var open_ = document.getElementById(openID);
+            var close_ = document.getElementById(closeID);
+            open_.style.display = 'block';
+            close_.style.display = 'none';
+        }
+        function Detail(productID){
+            a = document.getElementById(productID);
+            var imgElement = a.querySelector('.img-product img');
+
+            var imgSrc = imgElement.getAttribute('src');
+
+            // Lấy văn bản từ phần tử
+            var productNameElement = a.querySelector('.product-name');
+            var productName = productNameElement.textContent;
+
+            // Lấy giá từ phần tử
+            var priceElement = a.querySelector('.tp_product_price');
+            var price = priceElement.textContent;
+
+            var detailProduct = document.getElementById('detail_product');
+            
+            var detailImgElement = detailProduct.querySelector('.img-main img');
+            detailImgElement.setAttribute('src', imgSrc);
+
+            var detailProductNameElement = detailProduct.querySelector('.detail-product-name a');
+            detailProductNameElement.textContent = productName;
+
+            var detailPriceElement = detailProduct.querySelector('.detail-product-name + h1 span');
+            detailPriceElement.textContent = price;
+           
+        }
         window.onload = function () {
             showProducts(1);
 
@@ -93,13 +125,13 @@
         <h3>Thực phẩm tươi sống</h3>
     </div>
 
-    <div class="container">
+    <div id = "list_product" class="container">
 
         <div class="row">
-            <div class="col-6 col-md-4 col-lg-3">
+            <div id = "product_1" class="col-6 col-md-4 col-lg-3">
                 <div class="product cate-product text-center">
 
-                    <div class="img-product" onclick="window.location.href='/ba-roi-heo-rut-suon-c.p-p37605609.html';">
+                    <div class="img-product">
 
                         <img data-sizes="auto" class="card-img-top lazyautosizes ls-is-cached lazyloaded"
                             src="Image\Danhmucsanpham\thucpham\heorutxuong.jpg"
@@ -108,7 +140,7 @@
                     </div>
                     <div class="product-body">
                         <div>
-                            <a class="product-name" href="/ba-roi-heo-rut-suon-c.p-p37605609.html">Ba rọi heo rút sườn
+                            <a class="product-name" href="#" onclick="showDetail('detail_product','list_product'), Detail('product_1')">Ba rọi heo rút sườn
                                 C.P</a>
                         </div>
                         <div class="price-box">
@@ -118,11 +150,10 @@
                 </div>
             </div>
 
-            <div class="col-6 col-md-4 col-lg-3">
+            <div  id = "product_2" class="col-6 col-md-4 col-lg-3">
                 <div class="product cate-product text-center">
 
-                    <div class="img-product"
-                        onclick="window.location.href='/nam-bo-uc-tuoi-trung-dong-hut-chan-khong-p37605605.html';">
+                    <div class="img-product">
 
                         <img data-sizes="auto" class="card-img-top lazyautosizes ls-is-cached lazyloaded"
                             src="Image\Danhmucsanpham\thucpham\nambouc.jpg"
@@ -131,7 +162,7 @@
                     </div>
                     <div class="product-body">
                         <div>
-                            <a class="product-name" href="/nam-bo-uc-tuoi-trung-dong-hut-chan-khong-p37605605.html">Nạm
+                            <a class="product-name" href="#" onclick="showDetail('detail_product','list_product'), Detail('product_2')">Nạm
                                 bò Úc tươi Trung Đồng hút chân không</a>
                         </div>
                         <div class="price-box">
@@ -141,11 +172,10 @@
                 </div>
             </div>
 
-            <div class="col-6 col-md-4 col-lg-3">
+            <div  id = "product_3" class="col-6 col-md-4 col-lg-3">
                 <div class="product cate-product text-center">
 
-                    <div class="img-product"
-                        onclick="window.location.href='/vai-bo-uc-tuoi-trung-dong-hut-chan-khong-p37605593.html';">
+                    <div class="img-product">
 
                         <img data-sizes="auto" class="card-img-top lazyautosizes ls-is-cached lazyloaded"
                             src="Image\Danhmucsanpham\thucpham\vaibouc.jpg"
@@ -154,7 +184,7 @@
                     </div>
                     <div class="product-body">
                         <div>
-                            <a class="product-name" href="/vai-bo-uc-tuoi-trung-dong-hut-chan-khong-p37605593.html">Vai
+                            <a class="product-name" href="#" onclick="showDetail('detail_product','list_product'), Detail('product_3')">Vai
                                 bò Úc tươi Trung Đồng hút chân không</a>
                         </div>
                         <div class="price-box">
@@ -164,10 +194,10 @@
                 </div>
             </div>
 
-            <div class="col-6 col-md-4 col-lg-3">
+            <div  id = "product_4" class="col-6 col-md-4 col-lg-3">
                 <div class="product cate-product text-center">
 
-                    <div class="img-product" onclick="window.location.href='/tom-the-tuoi-dong-lanh-p37603253.html';">
+                    <div class="img-product">
 
                         <img data-sizes="auto" class="card-img-top lazyautosizes ls-is-cached lazyloaded"
                             src="Image\Danhmucsanpham\thucpham\tomthetuoi.jpg"
@@ -176,7 +206,7 @@
                     </div>
                     <div class="product-body">
                         <div>
-                            <a class="product-name" href="/tom-the-tuoi-dong-lanh-p37603253.html">Tôm thẻ tươi đông
+                            <a class="product-name" href="#" onclick="showDetail('detail_product','list_product'), Detail('product_4')">Tôm thẻ tươi đông
                                 lạnh</a>
                         </div>
                         <div class="price-box">
@@ -186,11 +216,10 @@
                 </div>
             </div>
 
-            <div class="col-6 col-md-4 col-lg-3">
+            <div  id = "product_5" class="col-6 col-md-4 col-lg-3">
                 <div class="product cate-product text-center">
 
-                    <div class="img-product"
-                        onclick="window.location.href='/phi-le-ca-loc-bong-thai-lat-p37603213.html';">
+                    <div class="img-product">
 
                         <img data-sizes="auto" class="card-img-top lazyautosizes ls-is-cached lazyloaded"
                             src="Image\Danhmucsanpham\thucpham\caphile.jpg"
@@ -199,7 +228,7 @@
                     </div>
                     <div class="product-body">
                         <div>
-                            <a class="product-name" href="/phi-le-ca-loc-bong-thai-lat-p37603213.html">Phi lê cá lóc
+                            <a class="product-name" href="#" onclick="showDetail('detail_product','list_product'), Detail('product_5')">Phi lê cá lóc
                                 bông thái lát</a>
                         </div>
                         <div class="price-box">
@@ -209,10 +238,10 @@
                 </div>
             </div>
 
-            <div class="col-6 col-md-4 col-lg-3">
+            <div id = "product_6" class="col-6 col-md-4 col-lg-3">
                 <div class="product cate-product text-center">
 
-                    <div class="img-product" onclick="window.location.href='/ngheu-hai-coi-p37601924.html';">
+                    <div class="img-product">
 
                         <img data-sizes="auto" class="card-img-top lazyautosizes ls-is-cached lazyloaded"
                             src="Image\Danhmucsanpham\thucpham\ngheu.jpg"
@@ -222,7 +251,7 @@
 
                     <div class="product-body">
                         <div>
-                            <a class="product-name" href="/ngheu-hai-coi-p37601924.html">Nghêu Hai Cồi</a>
+                            <a class="product-name" href="#" onclick="showDetail('detail_product','list_product'), Detail('product_6')">Nghêu Hai Cồi</a>
                         </div>
                         <div class="price-box">
                             <span class="price tp_product_price">105.000 VND</span>
@@ -248,6 +277,83 @@
               </li>
             </ul>
           </nav>
+    </div>
+      <!--Chi tiết-->
+      <div id = "detail_product" class="container tp_product_detail" style="display: none;">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="img-main">
+                    <div class="viewswiper-img" style="display:block">
+                        <img id="z" width="100%" class="cloudzoom"
+                            src="Image\Danhmucsanpham\raucu\xalachmyhuuco.jpg"
+                           >
+    
+                    </div>
+                </div>
+                     
+            </div>
+            <style>
+                .detail-product-name {
+                    margin-bottom: 50px; /* Khoảng cách giữa tiêu đề và nút */
+                    margin-top: 100px;
+                }
+            </style>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                <h1 class="detail-product-name">
+                    <a class="text2line tp_product_detail_name" href="/xa-lach-my-huu-co-p37597854.html"
+                        title="Xà lách Mỹ hữu cơ">Xà lách Mỹ hữu cơ</a>
+                </h1>
+                <h1 style="font-size: 20px; margin-bottom: 40px;">
+                    <label>Giá:</label>
+                    <span>149.000 VND</span>
+                </h1>
+                <div class="rte text4line">
+                    Chưa có mô tả cho sản phẩm này            
+                </div>
+                <form class="quick_option variants">
+                    <span class="price-product-detail hidden" style="opacity: 0;">
+                        <span class=""></span>
+                    </span>
+                    <select name="variantId" class="hidden" style="display:none"></select>
+                    <div class="clearfix"></div>
+                    <div class="quantity_wanted_p ">
+                        <div class="input_qty_qv">
+                            <span> Số lượng : </span>
+                            <input type="button" class="button minus" value="-" onclick="giam()">
+                            <input type="number" id="quantity" name="quantity" value="1" min="1" max="5000"
+                                class="prd_quantity quantity">
+                            <input type="button" class="button plus" value="+" onclick=tang()>
+                            <span></span>
+                            <script>
+                                var dem = 1; // Bắt đầu từ 1 vì giá trị ban đầu của input là 1
+                                
+                                function tang() {
+                                  dem += 1;
+                                  document.getElementById("quantity").value = dem; // Sử dụng .value thay vì .innerHTML
+                                }
+                                
+                                function giam() {
+                                  if (dem > 1) { // Kiểm tra để đảm bảo số lượng không nhỏ hơn 1
+                                    dem -= 1;
+                                    document.getElementById("quantity").value = dem; // Sử dụng .value thay vì .innerHTML
+                                  }
+                                }
+                            </script>
+                        </div>
+                        
+                        <button type="button" name="add" id="addToCart" title="" ck="0" psid="37597854" selid="37597854"
+                            class="unsel btn" data-original-title="Vui lòng chọn màu sắc hoặc kích cỡ!">
+                            <span>Thêm vào giỏ hàng</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <button type="button" class="btn btn-secondary bold-text" onclick="showDetail('list_product','detail_product')">Quay lại</button>
+        </div>
+    
+   
+        </div>
+    
     </div>
     <!--Phần footer-->
     <div class="footer_">
