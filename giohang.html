@@ -19,8 +19,20 @@
     <link rel="stylesheet" , href="css/header.css" />
     <!-- Reset CSS -->
     <link rel="stylesheet" , href="css/reset.css" />
-
-    <title>Vermouth</title>
+    <link rel="stylesheet" , href="Admin/css/style.css" />
+    <link rel="stylesheet" , href="css/style.css" />
+    <title>Giỏ hàng</title>
+    <script>
+        function _delete(){
+            alert("Đã xóa sản phẩm khỏi giỏ hàng!")
+        }
+        function showSuccess(openID, closeID){
+            open =document.getElementById(openID);
+            close= document.getElementById(closeID);
+            open.style.display = 'block';
+            close.style.display = 'none';
+        }
+    </script>
 </head>
 
 <body>
@@ -68,6 +80,96 @@
     </div>
     <div class="header__panel" style="max-width:1000vh">
        
+    </div>
+    <div class="bread-crumb text-center bread-crumb_background"
+        style=" background-image: url('Image/We/backgroundanhmuc.png');">
+        <h3>Giỏ hàng</h3>
+    </div>
+    <div id = "info" class = "main__panel">
+        <form> 
+            <div class = "inline can_giua" >
+              <div class ="element">
+                <label for="name_order" class = "_label">Tên khách hàng</label>
+                <input type="text" class="form-control" id="name_order" name="name_order" value="DH-1323000" >
+              </div>
+              <div class ="element">
+                <label for="phone_order" class = "_label">Số điện thoại</label>
+                <input type="text" class="form-control" id="phone_order" name="phone_order" value="DH-1323000" >
+              </div>
+              <div class = "element">
+                <label for="status_order" class = "_label">Trạng thái</label>
+                <input type="text" class="form-control" id="status_order" name="status_order" value="DH-1323000">
+              </div>
+            </div>
+            <div>
+              <label for="diachi" class = "_label" style="font-size: 18px;" >Địa chỉ nhận hàng</label>
+              <div class="dia-chi" >
+                <div class = "inline" >
+                  <div class ="element">
+                    <label for="ward" class = "_label">Phường/Xã</label>
+                    <input type="text" class="form-control" id="ward" name="ward" value="Phường 1" >
+                  </div>
+                  <div class ="element">
+                    <label for="district" class = "_label">Quận/Huyện</label>
+                    <input type="text" class="form-control" id="district" name="district" value="Quận Bình Thạnh" >
+                  </div>
+                  <div class ="element">
+                    <label for="city" class = "_label">Tỉnh/Thành phố</label>
+                    <input type="text" class="form-control" id="city" name="city" value="Thành phố Hồ Chí Minh" >
+                  </div>
+                </div>
+                <input type="text" style ="width: 60%;"class="form-control" id="duong" name="duong" value="Số 123, đường Nguyễn Văn A">
+              </div>
+            </div>
+            <div class ="bang_nho" style="margin-top: 20px;">
+              <table class="table table-striped">
+                <thead>
+                  <tr class = "bold-text" style="font-size: 18px;">
+                    <th>STT</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Xóa</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Nho đỏ có hạt Peru</td>
+                      <td>139.000 VND</td>
+                      <td><input type="number" value="2" min="0" style="width: 40px;"></td></td>
+                      <td ><a href="" onclick="_delete()">xóa</a></td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Sầu riêng Musang King Malaysia</td>
+                      <td>559.000 VND</td>
+                      <td><input type="number" value="2" min="0" style="width: 40px;"></td></td>
+                      <td ><a href="" onclick="_delete()">xóa</a></td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>  
+            <div class ="bold-text" style="text-align: right; margin-right: 80px;">
+              <label style="margin-right: 10px;">Tổng tiền:</label>
+              <label style="margin-right: 5px;">1.396.000</label><label> VND</label>
+            </div>
+            
+          </form>
+          <button type="button" class="btn btn-success" onclick="showSuccess('success','info')">
+            Đặt hàng
+          </button>
+    </div>
+    <div id = "success" class="order" style="display: none;">
+        <div class="container">
+            <div class="order__wrap">
+                <div class="order__check">
+                    <i class="fa-solid fa-check"></i>
+                    <h2>Đặt hàng thành công</h2>
+                </div>
+                
+            
+        </div>
     </div>
     <script>
         var myIndex = 0;

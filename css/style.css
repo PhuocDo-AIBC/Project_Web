@@ -2,3 +2,14 @@
     display: flex;
     justify-content: center;
   }
+  .image_sanpham{
+    width: 100px;
+    height: 100px;
+}
+.bang_nho tbody tr {
+  height: 100px;
+} 
+.can_giua{
+  display: flex;
+  justify-content: space-between;  
+}
