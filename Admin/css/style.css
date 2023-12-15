@@ -112,7 +112,12 @@ tbody tr td {
 #input_file {
         display: none;
 }
-
+#input_file_change {
+        display: none;
+}
+#input_file_delete {
+        display: none;
+}
 .change_button {
         background-color: #0dcaf0;
         color: black;
@@ -128,4 +133,16 @@ tbody tr td {
 #file_hinh{
         width: 400px;
         height: 400px;
+}
+#file_hinh_change{
+        width: 400px;
+        height: 400px;
+}
+#file_hinh_delete{
+        width: 400px;
+        height: 400px;
+}
+.image_sanpham{
+        width: 100px;
+        height: 100px;
 }

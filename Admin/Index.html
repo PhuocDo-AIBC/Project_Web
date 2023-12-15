@@ -137,23 +137,17 @@
         if(trElement){
           var data = {
             name_: trElement.querySelector('td:nth-child(2)').innerText,
-            image_: trElement.querySelector('td:nth-child(3)').innerText,
+            image_: trElement.querySelector('td:nth-child(3) img').src,
             price_: trElement.querySelector('td:nth-child(4)').innerText,
             quantity_: trElement.querySelector('td:nth-child(5)').innerText,
             type_: trElement.querySelector('td:nth-child(6)').innerText,
             status_:trElement.querySelector('td:nth-child(7)').innerText
           };
           document.getElementById('name_edit_product').value = data.name_;
-          // document.getElementById('image_edit_product').value = data.image_;
+          var fileHinhChange = document.getElementById('file_hinh_change');
+          fileHinhChange.src = data.image_;
           document.getElementById('price_edit_product').value = data.price_;
           document.getElementById('quantity_edit_product').value = data.quantity_;
-          var typeSelect = document.getElementById('type_edit_product');
-          for (var i = 0; i < typeSelect.options.length; i++) {
-            if (typeSelect.options[i].value.trim() === data.type_.trim()) {
-              typeSelect.selectedIndex = i;
-              break;
-            }
-          }
           document.getElementById('status_edit_product').value = data.status_;
         }
         else{
@@ -213,6 +207,33 @@
         alert("Đã lưu thay đổi!")
         showPanel('User');
       }
+      function displayImage(){
+        var input = document.getElementById('input_file');
+        var img = document.getElementById('file_hinh');
+        if (input.files && input.files[0]){
+          var reader = new FileReader();
+          reader.onload = function(e){
+            img.src = e.target.result;
+          };
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+
+      function changeImage(){
+        var input = document.getElementById('input_file_change');
+        var img = document.getElementById('file_hinh_change');
+        if (input.files && input.files[0]){
+          var reader = new FileReader();
+          reader.onload = function(e){
+            img.src = e.target.result;
+          };
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+      function deleteImage() {
+        var img = document.getElementById('file_hinh_change');
+        img.src = '../Image/pic.png';
+    }
       window.onload = function() {
         showPanel('Order')
         showList(1,'#table_order')
@@ -245,7 +266,7 @@
             </div>
             <div>
               <div class="">
-                <span class ="ten"><i class="fa-solid fa-right-from-bracket"></i></span> 
+                <span ><a href="../Index.html" class ="ten"><i class="fa-solid fa-right-from-bracket"></i></a></span> 
               </div>
             </div>
           </nav>
@@ -656,8 +677,8 @@
                   <tr id = "product_1" class = "table-success">
                     <td>1</td>
                     <td>Khoai lang Nhật hữu cơ</td>
-                    <td>
-                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    <td class = "image_sanpham">
+                      <img src ="../Image/Product/KhoaiLang.jpg" alt ="image">
                     </td>
                     <td>51.000 VND</td>
                     <td >15</td>
@@ -675,8 +696,8 @@
                   <tr id = "product_2" >
                     <td>2</td>
                     <td>Bí đỏ hữu cơ Food King</td>
-                    <td>
-                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    <td class = "image_sanpham">
+                      <img src ="../Image/Product/BiDo.jpg" alt ="image">
                     </td>
                     <td>140.000 VND</td>
                     <td >15</td>
@@ -694,8 +715,8 @@
                   <tr id = "product_3" class = "table-success">
                     <td>3</td>
                     <td>Bí đỏ non hữu cơ USDA Food King</td>
-                    <td>
-                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    <td class = "image_sanpham">
+                      <img src ="../Image/Product/BiDoNon.jpg" alt ="image">
                     </td>
                     <td>43.800 VND</td>
                     <td >15</td>
@@ -713,8 +734,8 @@
                   <tr id = "product_4" >
                     <td>4</td>
                     <td>Cải ngọt hữu cơ</td>
-                    <td>
-                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    <td class = "image_sanpham">
+                      <img src ="../Image/Product/CaiNgot.jpg" alt ="image">
                     </td>
                     <td>38.000 VND</td>
                     <td >15</td>
@@ -732,8 +753,8 @@
                   <tr id = "product_5" class = "table-success">
                     <td>5</td>
                     <td>Cà chua mini socola hữu cơ</td>
-                    <td>
-                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    <td class = "image_sanpham">
+                      <img src ="../Image/Product/CaChuaMiNiSoCoLa.jpg" alt ="image">
                     </td>
                     <td>35.000 VND</td>
                     <td >15</td>
@@ -751,8 +772,8 @@
                   <tr id = "product_6" >
                     <td>6</td>
                     <td>Nho đỏ có hạt Peru</td>
-                    <td>
-                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    <td class = "image_sanpham">
+                      <img src ="../Image/Product/NhoDo.jpg" alt ="image">
                     </td>
                     <td>139.000 VND</td>
                     <td >15</td>
@@ -770,8 +791,8 @@
                   <tr id = "product_7" class = "table-success">
                     <td>7</td>
                     <td>Sầu riêng Musang King Malaysia</td>
-                    <td>
-                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    <td class = "image_sanpham">
+                      <img src ="../Image/Product/SauRieng.jpg" alt ="image">
                     </td>
                     <td>599.000 VND</td>
                     <td >15</td>
@@ -789,8 +810,8 @@
                   <tr id = "product_8" >
                     <td>8</td>
                     <td>Bưởi da xanh bọc lưới loại 1</td>
-                    <td>
-                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    <td class = "image_sanpham">
+                      <img src ="../Image/Product/BuoiDaXanh.jpg" alt ="image">
                     </td>
                     <td>59.000 VND</td>
                     <td >15</td>
@@ -808,8 +829,8 @@
                   <tr id = "product_9" class = "table-success">
                     <td>9</td>
                     <td>Táo xanh Granny Smith Mỹ size 100</td>
-                    <td>
-                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    <td class = "image_sanpham">
+                      <img src ="../Image/Product/TaoXanh.jpg" alt ="image">
                     </td>
                     <td>129.000 VND</td>
                     <td >15</td>
@@ -827,8 +848,8 @@
                   <tr id = "product_10" >
                     <td>10</td>
                     <td>Cam Cara Mỹ</td>
-                    <td>
-                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    <td class = "image_sanpham">
+                      <img src ="../Image/Product/Cam.jpg" alt ="image">
                     </td>
                     <td>169.000 VND</td>
                     <td >15</td>
@@ -846,8 +867,8 @@
                   <tr id = "product_11" class = "table-success">
                     <td >11</td>
                     <td>Ba rọi heo rút sườn C.P</td>
-                    <td>
-                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    <td class = "image_sanpham">
+                      <img src ="../Image/Product/BaoRoiHeo.jpg" alt ="image">
                     </td>
                     <td>119.000 VND</td>
                     <td >15</td>
@@ -865,8 +886,8 @@
                   <tr id = "product_12" >
                     <td>12</td>
                     <td>Nạm bò Úc tươi Trung Đồng hút chân không</td>
-                    <td>
-                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    <td class = "image_sanpham">
+                      <img src ="../Image/Product/NamBo.jpg" alt ="image">
                     </td>
                     <td>84.000 VND</td>
                     <td >15</td>
@@ -884,8 +905,8 @@
                   <tr  id = "product_13" class = "table-success">
                     <td>13</td>
                     <td>Vai bò Úc tươi Trung Đồng hút chân không</td>
-                    <td>
-                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    <td class = "image_sanpham">
+                      <img src ="../Image/Product/VaiBo.jpg" alt ="image">
                     </td>
                     <td>120.000 VND</td>
                     <td >15</td>
@@ -903,8 +924,8 @@
                   <tr id = "product_14" >
                     <td>14</td>
                     <td>Tôm thẻ tươi đông lạnh</td>
-                    <td>
-                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    <td class = "image_sanpham">
+                      <img src ="../Image/Product/Tom.jpg" alt ="image">
                     </td>
                     <td>109.000 VND</td>
                     <td >15</td>
@@ -922,8 +943,8 @@
                   <tr id = "product_15" class = "table-success">
                     <td >15</td>
                     <td>Nghêu Hai Cồi</td>
-                    <td>
-                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    <td class = "image_sanpham">
+                      <img src ="../Image/Product/Ngheu.jpg" alt ="image">
                     </td>
                     <td>105.000 VND</td>
                     <td >15</td>
@@ -941,8 +962,8 @@
                   <tr id = "product_16" >
                     <td>16</td>
                     <td>Yến mạch ăn liền Quaker hộp 600g</td>
-                    <td>
-                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    <td class = "image_sanpham">
+                      <img src ="../Image/Product/Yenmach.jpg" alt ="image">
                     </td>
                     <td>115.000 VND</td>
                     <td >15</td>
@@ -960,8 +981,8 @@
                   <tr  id = "product_17" class = "table-success">
                     <td>17</td>
                     <td>Ngũ cốc dinh dưỡng Ohh Granola hộp 250g</td>
-                    <td>
-                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    <td class = "image_sanpham">
+                      <img src ="../Image/Product/Ngucocdinhduong.jpg" alt ="image">
                     </td>
                     <td>164.000 VND</td>
                     <td >15</td>
@@ -979,8 +1000,8 @@
                   <tr id = "product_18" >
                     <td>18</td>
                     <td>Ngũ cốc trái cây Calbee gói 700g</td>
-                    <td>
-                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    <td class = "image_sanpham">
+                      <img src ="../Image/Product/Ngucoctraicay.jpg" alt ="image">
                     </td>
                     <td>280.000 VND</td>
                     <td >15</td>
@@ -998,8 +1019,8 @@
                   <tr id = "product_19" class = "table-success">
                     <td >19</td>
                     <td>Bánh ngũ cốc Simba Choco Chips</td>
-                    <td>
-                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    <td class = "image_sanpham">
+                      <img src ="../Image/Product/Banhngucoc.jpg" alt ="image">
                     </td>
                     <td>25.000 VND</td>
                     <td >15</td>
@@ -1017,8 +1038,8 @@
                   <tr id = "product_20" >
                     <td>20</td>
                     <td>Ngũ cốc Nestlé Koko Krunch</td>
-                    <td>
-                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    <td class = "image_sanpham">
+                      <img src ="../Image/Product/Ngucoc.jpg" alt ="image">
                     </td>
                     <td>25.000 VND</td>
                     <td >15</td>
@@ -1385,7 +1406,7 @@
               <img src="../Image/pic.png" id ="file_hinh" >
               <div class = "label">
                 <label for="input_file" class="change_button" style="margin-right: 10px;">Thêm</label>
-                <input type="file" id="input_file" accept="image/*">
+                <input type="file" id="input_file" accept="image/*" onchange="displayImage()">
               </div>
             </div>
             <div class ="inline can_giua" style="margin-top: 20px;">
@@ -1428,18 +1449,16 @@
           <div class = "tieu-de">Chỉnh sửa sản phẩm</div>
           <form>
             <div class = "giua" >
-              <img id = "file_hinh" src="../Image/pic.png">
+              <img id = "file_hinh_change" src="../Image/pic.png">
             </div>
             <div class = "giua">
               <div class = "label" style="display: inline-block;">
-                <label for="input_file" class="change_button" >Thay đổi</label>
-                <input type="file" id="input_file" accept="image/*">
+                <label for="input_file_change" class="change_button" >Thay đổi</label>
+                <input type="file" id="input_file_change" accept="image/*" onchange="changeImage()">
+                <button type="button" class="btn btn-danger " onclick="deleteImage()">
+                  Xóa
+                </button>
               </div>
-              <div class = "label" style="display: inline-block;" >
-                <label for="input_file" class="change_button" style="margin-right: 10px; background-color: #dc3545;">Xóa</label>
-                <input type="file" id="input_file" accept="image/*">
-              </div>
-            </div>
             <div class ="inline can_giua" style="margin-top: 20px;">
               <div class = "element">
                 <label for="name_edit_product" class = "_label">Tên sản phẩm</label>
