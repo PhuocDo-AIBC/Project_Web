@@ -1,0 +1,36 @@
+#customer_login ul li input,#registerForm ul li input{
+    width: 100%;
+    border: 1px solid #ebebeb;
+    border-radius: 30px;
+    padding: 10px 25px;
+    min-height: 50px;
+    outline: none;
+    margin-bottom: 10px;
+}
+#customer_login ul,#registerForm ul{
+    padding: 0;
+    margin: 0;
+}
+#customer_login ul li,#registerForm ul li{
+    list-style: none;
+}
+#customer_login ul li input,#registerForm ul li input{
+    width: 100%;
+    border: 1px solid #ebebeb;
+    border-radius: 30px;
+    padding: 10px 25px;
+    min-height: 50px;
+    outline: none;
+    margin-bottom: 10px;
+}
+#btnSubmit,#btn-register,.btn-cart-header{
+    color: #fff;
+    background: -moz-linear-gradient(35deg,#91ad41 0%,#ff8a6c 100%);
+    background: -webkit-linear-gradient(35deg,#91ad41 0%,#ff8a6c 100%);
+    background: -ms-linear-gradient(35deg,#91ad41 0%,#ff8a6c 100%);
+    font-size: 16px;
+}
+#btnSubmit:hover,#btn-register:hover,.btn-cart-header:hover{
+    background: #91ad41;
+    color: #fff;
+}

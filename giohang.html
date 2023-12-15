@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href="https://web.nvnstatic.net/tp/T0307/font/Quicksand-VariableFont_wght.ttf" as="font"
+        type="font/ttf" crossorigin />
+    <link rel="stylesheet" , href="Fonts/fontawesome-free-6.4.2-web/css/all.min.css " />
+
+    <!-- CSS Base-->
+    <link rel="stylesheet" href="cssbody/row.css" />
+    <link rel="stylesheet" href="cssbody/owlCarousel.css" />
+    <link rel="stylesheet" href="cssbody/Bootstap.css" />
+    <link rel="stylesheet" href="cssbody/Body.css" />
+    <link rel="stylesheet" href="cssbody/font-awesome.css" />
+    <link rel="stylesheet" href="cssbody/style.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" , href="css/header.css" />
+    <!-- Reset CSS -->
+    <link rel="stylesheet" , href="css/reset.css" />
+
+    <title>Vermouth</title>
+</head>
+
+<body>
+    <div class="main__body">
+        <!--Phần header-->
+        <header class="header">
+            <div class="header__content">
+                <nav class="navbar">
+                    <!-- Logo -->
+                    <a href="#"><img class="header__logo__img" src="Image/logo.png" alt="" /></a>
+                    <!-- Navigation -->
+                    <ul class="header__list">
+                        <li class="header__item"><a href="#">Trang chủ</a></li>
+                        <li class="header__item">
+                            <a href="#">Sản Phẩm</a>
+                            <span class="caret"></span>
+                            <ul class="sanpham__list">
+                                <li class="sanpham_item"><a href="#">Rau củ</a></li>
+                                <li class="sanpham_item"><a href="#">Hoa quả tươi</a></li>
+                                <li class="sanpham_item">
+                                    <a href="#">Thực phẩm tươi sống</a>
+                                </li>
+                                <li class="sanpham_item"><a href="#">Ngũ cốc</a></li>
+                            </ul>
+                        </li>
+                        <li class="header__item"><a href="#">Tin tức</a></li>
+                        <li class="header__item"><a href="#">Liên hệ</a></li>
+                        <li class="header__item"><a href="#">Sale up To 50%</a></li>
+                    </ul>
+                    <!-- Action -->
+                    <div class="header__action__container">
+                        <div class="action__cart-bag">
+                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                            <span class="cout_cart">0</span>
+                        </div>
+                        <div class="action__user">
+                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                        </div>
+                        <div class="action_search">
+                            <i class="fa fa-search iconSearchDesktop" aria-hidden="true" data-metatip="true"></i>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+    </div>
+    <div class="header__panel" style="max-width:1000vh">
+       
+    </div>
+    <script>
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) { myIndex = 1; }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(carousel, 4000); // Change image every 4 seconds
+        }
+
+    </script>
+    </header>
+    
+    <!--Phần footer-->
+    <div class="footer_">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 widget_first_childs">
+                    <div class="logo_footer">
+                        <a href="/">
+                            <img src="Image\logo.png" alt="Logo">
+                        </a>
+                    </div>
+                    <div class="contact_footer">
+                        <ul>
+                            <li>
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <span>30 Phạm Văn Đồng Cầu Giấy, Hà Nội</span>
+                            </li>
+                            <li>
+                                <i class="fa fa-mobile" aria-hidden="true"></i>
+                                <span>1900.2812</span>
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                <span>abctheme205@gmail.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-8 clearfix widget-ft">
+                    <div class="col-md-4 float-left">
+                        <h4 class="ft_title" data-toggle="collapse" href="#collapseExample" role="button"
+                            aria-expanded="false" aria-controls="collapseExample">
+                            <span>Cẩm nang sử dụng</span>
+                            <span class="pull-right r_col"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                        </h4>
+                        <div class="collapse" id="collapseExample">
+                            <ul>
+                                <li><a href="#">Trang chủ</a></li>
+                                <li><a href="#">Giới thiệu</a></li>
+                                <li><a href="#">Sản phẩm</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 float-left">
+                        <h4 class="ft_title" data-toggle="collapse" href="#collapseExample1" role="button"
+                            aria-expanded="false" aria-controls="collapseExample">
+                            <span>Chính sách</span>
+                            <span class="pull-right r_col"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                        </h4>
+                        <div class="collapse" id="collapseExample1">
+                            <ul>
+                                <li><a href="#">Trang chủ</a></li>
+                                <li><a href="#">Giới thiệu</a></li>
+                                <li><a href="#">Sản phẩm</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 float-left">
+                        <h4 class="ft_title" data-toggle="collapse" href="#collapseExample2" role="button"
+                            aria-expanded="false" aria-controls="collapseExample">
+                            <span>Dịch vụ</span>
+                            <span class="pull-right r_col"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                        </h4>
+                        <div class="collapse" id="collapseExample2">
+                            <ul>
+                                <li><a href="#">Trang chủ</a></li>
+                                <li><a href="#">Giới thiệu</a></li>
+                                <li><a href="#">Sản phẩm</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    </div>
+    <input type="hidden" id="bussinessId" value="71503">
+    <input type="hidden" class="fanpageId" value="">
+    <input type="hidden"
+        value="7mwiZoDnXg1UBQylLIWT4QAVdVEA3JXAxGy9zLJfgJtkafsZnKqlvPszNPuKk0pUQDNO6RbAsNo7A6FidLrDxB5Q3Wt7XWYm8EgPn2vGE1sBbeDaRYt3FboEWKN7Qekg8UXURHSkCz9QpzGWssC8bD9KA4HNKzmZxFH3TgU8Q8OV3m4dayrfaJMZGEebhXWUMS7Bh396d3oyupgZ22C2LI0"
+        id="uctk" name="uctk">
+    <input type="hidden" id="clienIp" value="123.20.80.114">
+    <div id="mm-blocker" class="mm-slideout"></div>
+</body>
+
+</html>
