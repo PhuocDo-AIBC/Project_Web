@@ -36,6 +36,38 @@
                 products[i].style.display = '';
             }
         }
+        function showDetail(openID, closeID){
+            var open_ = document.getElementById(openID);
+            var close_ = document.getElementById(closeID);
+            open_.style.display = 'block';
+            close_.style.display = 'none';
+        }
+        function Detail(productID){
+            a = document.getElementById(productID);
+            var imgElement = a.querySelector('.img-product img');
+
+            var imgSrc = imgElement.getAttribute('src');
+
+            // Lấy văn bản từ phần tử
+            var productNameElement = a.querySelector('.product-name');
+            var productName = productNameElement.textContent;
+
+            // Lấy giá từ phần tử
+            var priceElement = a.querySelector('.tp_product_price');
+            var price = priceElement.textContent;
+
+            var detailProduct = document.getElementById('detail_product');
+            
+            var detailImgElement = detailProduct.querySelector('.img-main img');
+            detailImgElement.setAttribute('src', imgSrc);
+
+            var detailProductNameElement = detailProduct.querySelector('.detail-product-name a');
+            detailProductNameElement.textContent = productName;
+
+            var detailPriceElement = detailProduct.querySelector('.detail-product-name + h1 span');
+            detailPriceElement.textContent = price;
+           
+        }
         window.onload = function() {
             showProducts(1);
         };
@@ -94,10 +126,10 @@
         <h3>Hoa quả tươi</h3>
     </div>
 
-    <div class="container">
+    <div id ="list_product" class="container" style="display: block;">
         <div class="row">
 
-            <div class="col-6 col-md-4 col-lg-3">
+            <div id = "product_1" class="col-6 col-md-4 col-lg-3">
                 <div class="product cate-product text-center">
 
                     <div class="img-product">
@@ -109,7 +141,7 @@
                     </div>
                     <div class="product-body">
                         <div>
-                            <a class="product-name" href="/nho-do-co-hat-peru-p37601635.html">Nho đỏ có hạt Peru</a>
+                            <a class="product-name" href="#" onclick="showDetail('detail_product','list_product'), Detail('product_1')">Nho đỏ có hạt Peru</a>
                         </div>
                         <div class="price-box">
                             <span class="price tp_product_price">139.000 VND</span> 
@@ -118,7 +150,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6 col-md-4 col-lg-3">
+            <div id = "product_2" class="col-6 col-md-4 col-lg-3">
                 <div class="product cate-product text-center">
 
                     <div class="img-product">
@@ -130,7 +162,7 @@
                     </div>
                     <div class="product-body">
                         <div>
-                            <a class="product-name" href="/thanh-long-ruot-trang-p37601617.html">Thanh Long Ruột Trắng</a>
+                            <a class="product-name" href="#" onclick="showDetail('detail_product','list_product'), Detail('product_2')">Thanh Long Ruột Trắng</a>
                         </div>
                         <div class="price-box">
                             <span class="price tp_product_price">29.000 VND</span>
@@ -139,7 +171,7 @@
                 </div>
             </div>
 
-            <div class="col-6 col-md-4 col-lg-3">
+            <div id = "product_3" class="col-6 col-md-4 col-lg-3">
                 <div class="product cate-product text-center">
 
                     <div class="img-product">
@@ -151,7 +183,7 @@
                     </div>
                     <div class="product-body">
                         <div>
-                            <a class="product-name" href="/sau-rieng-musang-king-malaysia-p37601594.html">Sầu riêng
+                            <a class="product-name" href="#" onclick="showDetail('detail_product','list_product'), Detail('product_3')">Sầu riêng
                                 Musang King Malaysia</a>
                         </div>
                         <div class="price-box">
@@ -161,7 +193,7 @@
                 </div>
             </div>
 
-            <div class="col-6 col-md-4 col-lg-3">
+            <div id = "product_4" class="col-6 col-md-4 col-lg-3">
                 <div class="product cate-product text-center">
 
                     <div class="img-product">
@@ -173,7 +205,7 @@
                     </div>
                     <div class="product-body">
                         <div>
-                            <a class="product-name" href="/buoi-da-xanh-boc-luoi-loai-1-p37601580.html">Bưởi da xanh bọc
+                            <a class="product-name" href="#" onclick="showDetail('detail_product','list_product'), Detail('product_4')">Bưởi da xanh bọc
                                 lưới loại 1</a>
                         </div>
                         <div class="price-box">
@@ -183,7 +215,7 @@
                 </div>
             </div>
 
-            <div class="col-6 col-md-4 col-lg-3">
+            <div id = "product_5" class="col-6 col-md-4 col-lg-3">
                 <div class="product cate-product text-center">
 
                     <div class="img-product">
@@ -195,7 +227,7 @@
                     </div>
                     <div class="product-body">
                         <div>
-                            <a class="product-name" href="/tao-xanh-granny-smith-my-size-100-p37601558.html">Táo xanh
+                            <a class="product-name" href="#" onclick="showDetail('detail_product','list_product'), Detail('product_5')">Táo xanh
                                 Granny Smith Mỹ size 100</a>
                         </div>
                         <div class="price-box">
@@ -205,7 +237,7 @@
                 </div>
             </div>
 
-            <div class="col-6 col-md-4 col-lg-3">
+            <div id = "product_6" class="col-6 col-md-4 col-lg-3">
                 <div class="product cate-product text-center">
 
                     <div class="img-product">
@@ -217,7 +249,7 @@
                     </div>
                     <div class="product-body">
                         <div>
-                            <a class="product-name" href="/cam-cara-my-p37601543.html">Cam Cara Mỹ</a>
+                            <a class="product-name" href="#" onclick="showDetail('detail_product','list_product'), Detail('product_6')">Cam Cara Mỹ</a>
                         </div>
                         <div class="price-box">
                             <span class="price tp_product_price">169.000 VND</span>
@@ -242,7 +274,84 @@
               </li>
             </ul>
           </nav>
-
+    </div>
+    <!--Chi tiết-->
+    <div id = "detail_product" class="container tp_product_detail" style="display: none;">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="img-main">
+                    <div class="viewswiper-img" style="display:block">
+                        <img id="z" width="100%" class="cloudzoom"
+                            src="Image\Danhmucsanpham\raucu\xalachmyhuuco.jpg"
+                           >
+    
+                    </div>
+                </div>
+                     
+            </div>
+            <style>
+                .detail-product-name {
+                    margin-bottom: 50px; /* Khoảng cách giữa tiêu đề và nút */
+                    margin-top: 100px;
+                }
+            </style>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                <h1 class="detail-product-name">
+                    <a class="text2line tp_product_detail_name" href="/xa-lach-my-huu-co-p37597854.html"
+                        title="Xà lách Mỹ hữu cơ">Xà lách Mỹ hữu cơ</a>
+                </h1>
+                <h1 style="font-size: 20px; margin-bottom: 40px;">
+                    <label>Giá:</label>
+                    <span>149.000 VND</span>
+                </h1>
+                <div class="rte text4line">
+                    Chưa có mô tả cho sản phẩm này            
+                </div>
+                <form class="quick_option variants">
+                    <span class="price-product-detail hidden" style="opacity: 0;">
+                        <span class=""></span>
+                    </span>
+                    <select name="variantId" class="hidden" style="display:none"></select>
+                    <div class="clearfix"></div>
+                    <div class="quantity_wanted_p ">
+                        <div class="input_qty_qv">
+                            <span> Số lượng : </span>
+                            <input type="button" class="button minus" value="-" onclick="giam()">
+                            <input type="number" id="quantity" name="quantity" value="1" min="1" max="5000"
+                                class="prd_quantity quantity">
+                            <input type="button" class="button plus" value="+" onclick=tang()>
+                            <span></span>
+                            <script>
+                                var dem = 1; // Bắt đầu từ 1 vì giá trị ban đầu của input là 1
+                                
+                                function tang() {
+                                  dem += 1;
+                                  document.getElementById("quantity").value = dem; // Sử dụng .value thay vì .innerHTML
+                                }
+                                
+                                function giam() {
+                                  if (dem > 1) { // Kiểm tra để đảm bảo số lượng không nhỏ hơn 1
+                                    dem -= 1;
+                                    document.getElementById("quantity").value = dem; // Sử dụng .value thay vì .innerHTML
+                                  }
+                                }
+                            </script>
+                        </div>
+                        
+                        <button type="button" name="add" id="addToCart" title="" ck="0" psid="37597854" selid="37597854"
+                            class="unsel btn" data-original-title="Vui lòng chọn màu sắc hoặc kích cỡ!">
+                            <span>Thêm vào giỏ hàng</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <button type="button" class="btn btn-secondary bold-text" onclick="showDetail('list_product','detail_product')">Quay lại</button>
+        </div>
+    
+   
+        </div>
+    
+    </div>
         <!--Phần footer-->
         <div class="footer_">
             <div class="container">
@@ -317,7 +426,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    
     
     <input type="hidden" id="bussinessId" value="71503">
     <input type="hidden" class="fanpageId" value="">
