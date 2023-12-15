@@ -1,0 +1,51 @@
+.Introduce__Menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+.Introduce__Menu__Content.One {
+    background-color: #59cca6;
+}
+.Introduce__Menu__Content.Two {
+    background-color: #91ad41;
+}
+.Introduce__Menu__Content.Three {
+    background-color: #e3b375;
+}
+.Introduce__Menu__Content.Four {
+    background-color: #ef7f94;
+}
+.Introduce__Menu__Content{
+    background: none;
+    position: relative;
+    padding: 0;
+    background-size: 50% auto;
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+.Introduce__Menu__Content .col__Content{
+    width: 100%;
+    padding-bottom: 100%;
+}
+.Introduce__Menu__Content .Content{
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 74px;
+    width: 60%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.banner_content .content_ p{
+    color: #fff;
+    font-size: 25px;
+}
+.banner_content .content_ p:hover {
+    color: #91ad41;
+}
+.banner_content .content_ span {
+    display: block;
+    /*float: left;*/
+    margin-bottom: 30px;
+}
