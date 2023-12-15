@@ -20,7 +20,12 @@
     <!-- Reset CSS -->
     <link rel="stylesheet" , href="css/reset.css" />
 
-    <title>Vermouth</title>
+    <title>Đăng nhập</title>
+    <script>
+        function redirectToAdminPage() {
+            document.location.assign('Admin/Index.html');
+        }
+    </script>
 </head>
 
 <body>
@@ -30,7 +35,7 @@
             <div class="header__content">
                 <nav class="navbar">
                     <!-- Logo -->
-                    <a href="#"><img class="header__logo__img" src="Image/logo.png" alt="" /></a>
+                    <a href="#"><img class="header__logo__img" src="Image/logo.pg" alt="" /></a>
                     <!-- Navigation -->
                     <ul class="header__list">
                         <li class="header__item"><a href="#">Trang chủ</a></li>
@@ -69,23 +74,6 @@
     <div class="header__panel" style="max-width:1000vh">
        
     </div>
-    <script>
-        var myIndex = 0;
-        carousel();
-
-        function carousel() {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            myIndex++;
-            if (myIndex > x.length) { myIndex = 1; }
-            x[myIndex - 1].style.display = "block";
-            setTimeout(carousel, 4000); // Change image every 4 seconds
-        }
-
-    </script>
     </header>
     <div class="bread-crumb text-center bread-crumb_background" style=" background-image: url('https://pos.nvncdn.com/16a837-71503/bn/20220325_5UxI8S76E0NIJxh0znPFxEOw.png');">
         <h3>Đăng nhập tài khoản</h3>
@@ -95,8 +83,8 @@
                 <div class="col-md-6">
                     <div id="signGF" class="text-center">
                         <h3>Đăng nhập tài khoản</h3>
-                        <a rel="nofollow" href="/user/fbsignin?redirect=/" id="signFacebook"><i class="fa fa-facebook fb"></i><span>Facebook</span></a>
-                        <a rel="nofollow" href="/user/ggsignin" id="signGoogle"><i class="fa fa-google-plus gp"></i><span>Google</span></a>
+                        <a rel="nofollow" href="#" id="signFacebook"><i class="fa fa-facebook fb"></i><span>Facebook</span></a>
+                        <a rel="nofollow" href="#" id="signGoogle"><i class="fa fa-google-plus gp"></i><span>Google</span></a>
                     </div>
                     <form method="post" id="customer_login">
                         <ul><input type="hidden" name="csrf" value="7793cb47055076a10cc730deb8ebab74-0adc3920162c6643be22411f35c46601">
@@ -104,7 +92,7 @@
                             </li>
                             <li><input name="password" type="password" class="tb validate[required]" id="password" placeholder="Mật khẩu"
                                     value=""></li>
-                            <li class="btns"><input name="submit" type="submit" id="btnSubmit" class="htmlBtn first" value="Đăng nhập"></li>
+                            <li class="btns" style="text-align: center;"><button type="button" class="btn btn-primary btn-lg htmlBtn first" style="margin-right: 10px;">Đăng nhập khách hàng </button><span><button type="button" class="btn btn-primary btn-lg htmlBtn first" onclick="redirectToAdminPage()">Đăng nhập admin </button</span></li>
                         </ul>
                     </form>
                    
