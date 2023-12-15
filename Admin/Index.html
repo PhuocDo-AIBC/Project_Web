@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://web.nvnstatic.net/css/owlCarousel/owl.carousel.min.2.3.4.css?v=23" type="text/css">
+    <link
+      rel="preload"
+      href="https://web.nvnstatic.net/tp/T0307/font/Quicksand-VariableFont_wght.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link
+      rel="stylesheet"
+      ,
+      href="../Fonts/fontawesome-free-6.4.2-web/css/all.min.css "
+    />
+    <link
+      rel ="stylesheet"
+      ,
+      href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    >
+    <link rel="stylesheet" , href="css/header.css" >
+    <link rel="stylesheet" , href="css/base.css" >
+    <link rel="stylesheet" , href="css/reset.css" >
+    <link rel="stylesheet" , href="css/style.css">
+    <script>
+      function showPanel(panelId) {
+        document.querySelectorAll('.main__panel').forEach(panel => {
+          panel.classList.add('hidden');
+        });
+        document.getElementById(panelId).classList.remove('hidden');
+      }
+      function Warning(e){
+        var result = confirm("Bạn chắc chắn muốn xóa sản phẩm này ?")
+      }
+
+      function showList(page, panel){
+        var s = panel + " .table tbody tr"
+        var rows = document.querySelectorAll(s);
+        var itemsPerPage = 5;
+        var start = (page - 1) * itemsPerPage;
+        var end = start + itemsPerPage;
+        for (var i = 0; i < rows.length; i++) {
+          rows[i].style.display = 'none';
+        }
+        for (var i = start; i < end && i < rows.length; i++) {
+          rows[i].style.display = '';
+        }   
+      }
+      function Confirm(CellID){
+        var statusCell = document.getElementById(CellID);
+        var statusText = document.getElementById(CellID).innerText;
+        if(statusText == "Đã xử lý"){
+          alert('Đơn hàng đã xử lý trước đó!');
+        }
+        else{
+          var result = confirm("Bạn chắc chắn đơn hàng đã được xử lý?");
+          if(result){
+            statusCell.innerHTML = '<span class="badge text-bg-success">Đã xử lý</span>'
+            alert('Đơn hàng đã được xử lý!');
+          }
+        }
+      }     
+      function Lock(CellID){
+        var statusCell = document.getElementById(CellID);
+        var statusText = document.getElementById(CellID).innerText;
+        if(statusText == "Đã khóa"){
+          result_b = confirm('Bạn chắc chắn mở khóa người dùng này?')
+          if(result_b){
+            statusCell.innerHTML = '<span class="badge text-bg-success">Đang hoạt động</span>'
+            alert('Bạn đã mở khóa người dùng');
+          }
+        }
+        else{
+          result_a = confirm('Bạn chắc chắn khóa người dùng này?')
+          if(result_a){
+            statusCell.innerHTML = '<span class="badge text-bg-danger">Đã khóa</span>'
+            alert('Bạn đã khóa người dùng');
+          }
+        }
+      }
+      function check(ID_open, ID_close){
+        a = document.getElementById(ID_open)
+        b = document.getElementById(ID_close)
+        a.style.display = "block";
+        b.style.display = "none";
+      }
+      function _show(ID_show_one, ID_show_two){
+        a = document.getElementById(ID_show_one)
+        b = document.getElementById(ID_show_two)
+        a.style.display = "block";
+        b.style.display = "block";
+      }
+      function extractOrder(trID){
+        var trElement = document.getElementById(trID);
+        if(trElement){
+          var data = {
+            code_: trElement.querySelector('td:nth-child(2)').innerText,
+            name_: trElement.querySelector('td ul li:nth-child(1)').innerText,
+            phone_: trElement.querySelector('td ul li:nth-child(2)').innerText,
+            status_: trElement.querySelector('td span').innerText
+          };
+          document.getElementById('code_order').value = data.code_;
+          document.getElementById('name_order').value = data.name_;
+          document.getElementById('phone_order').value = data.phone_;
+          document.getElementById('status_order').value = data.status_;
+        }
+        else{
+          console.error("No <tr> element with id '" + trId + "' found.");
+        }
+      }
+      function warningAddProduct() {
+        // Retrieve input values
+        var tenSanPham = document.getElementById("name_add_product").value;
+        var giaBan = document.getElementById("price_add_product").value;
+        var soLuong = document.getElementById("quantity_add_product").value;
+        var moTa = document.getElementById("status_add_product").value;
+
+        // Check if any field is empty
+        if (
+          tenSanPham === "" ||
+          moTa === "" ||
+          giaBan === "" ||
+          soLuong === ""
+        ) {
+        
+          alert("Vui lòng điền đầy đủ thông tin sản phẩm!");
+        } else {
+          alert("Thêm sản phẩm thành công!");
+          showPanel('Product');
+        }
+      }
+      function extractProduct(trID){
+        var trElement = document.getElementById(trID);
+        if(trElement){
+          var data = {
+            name_: trElement.querySelector('td:nth-child(2)').innerText,
+            image_: trElement.querySelector('td:nth-child(3)').innerText,
+            price_: trElement.querySelector('td:nth-child(4)').innerText,
+            quantity_: trElement.querySelector('td:nth-child(5)').innerText,
+            type_: trElement.querySelector('td:nth-child(6)').innerText,
+            status_:trElement.querySelector('td:nth-child(7)').innerText
+          };
+          document.getElementById('name_edit_product').value = data.name_;
+          // document.getElementById('image_edit_product').value = data.image_;
+          document.getElementById('price_edit_product').value = data.price_;
+          document.getElementById('quantity_edit_product').value = data.quantity_;
+          var typeSelect = document.getElementById('type_edit_product');
+          for (var i = 0; i < typeSelect.options.length; i++) {
+            if (typeSelect.options[i].value.trim() === data.type_.trim()) {
+              typeSelect.selectedIndex = i;
+              break;
+            }
+          }
+          document.getElementById('status_edit_product').value = data.status_;
+        }
+        else{
+          console.error("No <tr> element with id '" + trId + "' found.");
+        }
+      }
+      function notification(){
+        alert("Đã lưu thay đổi!")
+        showPanel('Product');
+      }
+      function warningAddUser() {
+        // Retrieve input values
+        var codeUser = document.getElementById("code_add_user").value;
+        var nameUser = document.getElementById("name_add_user").value;
+        var gmailUser = document.getElementById("gmail_add_user").value;
+        var phoneUser = document.getElementById("phone_add_user").value;
+        var quyenUser = document.getElementById("quyen_add_user").value;
+
+        // Check if any field is empty
+        if (
+          codeUser === "" ||
+          nameUser === "" ||
+          gmailUser === "" ||
+          phoneUser === "" ||
+          quyenUser === ""
+        ) {
+        
+          alert("Vui lòng điền đầy đủ thông tin sản phẩm!");
+        } else {
+          alert("Thêm sản phẩm thành công!");
+          showPanel('User');
+        }
+      }
+      function extractUser(trID){
+        var trElement = document.getElementById(trID);
+        if(trElement){
+          var data = {
+            code_: trElement.querySelector('td:nth-child(2)').innerText,
+            name_: trElement.querySelector('td:nth-child(3)').innerText,
+            phone_: trElement.querySelector('td:nth-child(5)').innerText,
+            status_: trElement.querySelector('td:nth-child(7)').innerText,
+            gmail_: trElement.querySelector('td:nth-child(4)').innerText,
+            quyen_:trElement.querySelector('td:nth-child(6)').innerText
+          };
+          document.getElementById('code_edit_user').value = data.code_;
+          document.getElementById('name_edit_user').value = data.name_;
+          document.getElementById('phone_edit_user').value = data.phone_;
+          document.getElementById('gmail_edit_user').value = data.gmail_;
+          document.getElementById('quyen_edit_user').value = data.quyen_;
+          document.getElementById('status_edit_user').value = data.status_.trim();
+        }
+        else{
+          console.error("No <tr> element with id '" + trId + "' found.");
+        }
+      }
+      function notificationUser(){
+        alert("Đã lưu thay đổi!")
+        showPanel('User');
+      }
+      window.onload = function() {
+        showPanel('Order')
+        showList(1,'#table_order')
+        check('radio_name','radio_type')
+
+      };
+    </script>
+    <title>Admin</title>
+  </head>
+  <body>
+      <!--Phần header-->
+      <header class="header">
+        <div class="header__content">
+          <nav class="navbar">
+            <!-- Logo -->
+            <a href="#"
+              ><img class="header__logo__img" src="../Image/logo.png" alt=""
+            /></a>
+            <!-- Navigation -->
+            <ul class="header__list">
+              <li class="header__item order" onclick="showPanel('Order'), showList(1,'#table_order')"><a href="#">Đơn Hàng</a></li>
+              <li class="header__item product" onclick="showPanel('Product'), showList(1,'#table_product')"><a href="#">Sản Phẩm</a></li>
+              <li class="header__item user" onclick="showPanel('User'), showList(1,'#table_user')"><a href="#">Người Dùng</a></li>
+              <li class="header__item statistic" onclick="showPanel('Statistic'), showList(1,'#table_statistic')"><a href="#">Thống Kê</a></li>
+            </ul>
+            <div class="header__action__container">
+              <div class="action__cart-bag">
+                <span class ="ten">Administrators</span> 
+              </div>
+            </div>
+            <div>
+              <div class="">
+                <span class ="ten"><i class="fa-solid fa-right-from-bracket"></i></span> 
+              </div>
+            </div>
+          </nav>
+          </div>
+        </div>
+      </header>
+      <div class = "container">
+        <div>
+          <div id = 'Order' class = "main__panel hidden" >
+            <div class = "tieu-de">Danh sách đơn hàng</div>
+            <div class="filter" style="margin-bottom: 10px;">
+              <div class="date">
+                  <label for="start">Từ ngày: </label>
+                  <input type="date" id="start" name="start" value="2023-01-15" min="2018-01-01" max="2023-12-31">
+                  <label for="start">đến </label>
+                  <input type="date" id="end" name="end" value="2023-11-30" min="2018-01-01" max="2023-12-31">
+                  <a href="#" type="button" class="btn btn-info btn-sm" style="font-size: 16px;">
+                    Xem
+                  </a> 
+              </div> 
+          </div>
+            <div id ='table_order' class = "table-responsive bang">
+              <table class="table table-striped table-hover">
+                  <thead>
+                      <tr class = "bold-text">
+                          <th>STT</th>
+                          <th>Mã đơn hàng</th>
+                          <th>Tên khách hàng</th>
+                          <th>Ngày đặt hàng</th>
+                          <th>Trạng thái</th>
+                          <th>Thao tác</th>
+                      </tr>
+                </thead>
+                <tbody>
+                              <tr id = "order_1" class="table-success">
+                                <td>1</td>
+                                <td>HD-00001412</td>
+                                <td>
+                                    <ul>
+                                        <li>Nguyễn Thị A</li>
+                                        <li>0343349534</li>
+                                    </ul>
+                                </td>
+                                <td>2023-01-15</td>
+                                <td id = "1">
+                                  <span class="badge text-bg-primary">Chưa xử lý</span>
+                                </td>
+                                <td>
+                                  <a href="#" type="button" class="btn btn-light btn-sm" onclick="showPanel('View_Order'), extractOrder('order_1')">
+                                    <i class="fa-solid fa-eye"></i>
+                                  </a>  
+                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal" onclick="Confirm('1')">
+                                  <i class="fa-solid fa-pen"></i>
+                                </button>
+                              </td>
+                            </tr>
+                            <tr id = "order_2">
+                                <td>2</td>
+                                <td>HD-00001413</td>
+                                <td>
+                                  <ul>
+                                        <li>Trần Thị B</li>
+                                        <li>0348686803</li>
+                                  </ul>
+                                </td>
+                                <td>2023-02-20</td>
+                                <td id = "2">
+                                  <span class="badge text-bg-success">Đã xử lý</span>
+                                </td>
+                                <td>
+                                  <a href="#" type="button" class="btn btn-light btn-sm" onclick="showPanel('View_Order'), extractOrder('order_2')">
+                                    <i class="fa-solid fa-eye"></i>
+                                  </a> 
+                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal" onclick="Confirm('2')" >
+                                  <i class="fa-solid fa-pen"></i>
+                                </button> 
+                              </td>
+                            </tr>
+                            <tr id = "order_3" class="table-success">
+                                <td>3</td>
+                                <td>HD-00001414</td>
+                                <td>
+                                    <ul>
+                                        <li>Lê Văn C</li>
+                                        <li>0865757123</li>
+                                    </ul>
+                                </td>
+                                <td>2023-03-10</td>
+                                <td id = "3">
+                                  <span class="badge text-bg-primary">Chưa xử lý</span>
+                                </td>
+                                <td>
+                                  <a href="#" type="button" class="btn btn-light btn-sm" onclick="showPanel('View_Order'), extractOrder('order_3')">
+                                    <i class="fa-solid fa-eye"></i>
+                                  </a> 
+                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal" onclick="Confirm('3')">
+                                  <i class="fa-solid fa-pen"></i>
+                                </button>
+                              </td>
+                            </tr>
+                            <tr id = "order_4">
+                              <td>4</td>
+                              <td>HD-00001415</td>
+                              <td>
+                                  <ul>
+                                      <li>Phạm Thị D</li>
+                                      <li>0876543210</li>
+                                  </ul>
+                              </td>
+                              <td>2023-04-05</td>
+                              <td id = "4">
+                                <span class="badge text-bg-primary">Chưa xử lý</span>
+                              </td>
+                              <td>
+                                <a href="#" type="button" class="btn btn-light btn-sm" onclick="showPanel('View_Order'), extractOrder('order_4')">
+                                  <i class="fa-solid fa-eye"></i>
+                                </a> 
+                              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal" onclick="Confirm('4')">
+                                <i class="fa-solid fa-pen"></i>
+                              </button>
+                            </td>
+                            </tr>
+                            <tr id = "order_5" class="table-success">
+                              <td>5</td>
+                              <td>HD-00001416</td>
+                              <td>
+                                  <ul>
+                                      <li>Hoàng Văn E</li>
+                                      <li>0365987452</li>
+                                  </ul>
+                              </td>
+                              <td>2023-05-12</td>
+                              <td id = "5">
+                                <span class="badge text-bg-success">Đã xử lý</span>
+                              </td>
+                              <td>
+                                <a href="#" type="button" class="btn btn-light btn-sm" onclick="showPanel('View_Order'), extractOrder('order_5')">
+                                  <i class="fa-solid fa-eye"></i>
+                                </a> 
+                              <button type="button" class="btn btn-info btn-sm " data-toggle="modal" data-target="#exampleModal" onclick="Confirm('5')">
+                                <i class="fa-solid fa-pen"></i>
+                              </button>
+                            </td>
+                            </tr>
+                            <tr id = "order_6" >
+                              <td>6</td>
+                              <td>HD-00001417</td>
+                              <td>
+                                  <ul>
+                                      <li>Ngọc Hà</li>
+                                      <li>0123456789</li>
+                                  </ul>
+                              </td>
+                              <td>2023-06-18</td>
+                              <td id = "6">
+                                <span class="badge text-bg-primary">Chưa xử lý</span>
+                              </td>
+                              <td>
+                                <a href="#" type="button" class="btn btn-light btn-sm" onclick="showPanel('View_Order'), extractOrder('order_6')">
+                                  <i class="fa-solid fa-eye"></i>
+                                </a> 
+                                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal" onclick="Confirm('6')">
+                                  <i class="fa-solid fa-pen"></i>
+                                </button>
+                            </td>
+                            </tr>
+                            <tr id = "order_7" class="table-success">
+                              <td>7</td>
+                              <td>HD-00001418</td>
+                              <td>
+                                  <ul>
+                                      <li>Quang Minh</li>
+                                      <li>0987654321</li>
+                                  </ul>
+                              </td>
+                              <td>2023-07-02</td>
+                              <td id = "7">
+                                <span class="badge text-bg-primary">Chưa xử lý</span>
+                              </td>
+                              <td>
+                                <a href="#" type="button" class="btn btn-light btn-sm " onclick="showPanel('View_Order'), extractOrder('order_7')">
+                                  <i class="fa-solid fa-eye"></i>
+                                </a> 
+                              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal" onclick="Confirm('7')">
+                                <i class="fa-solid fa-pen"></i>
+                              </button>
+                            </td>
+                            </tr>
+                            <tr id = "order_8" >
+                              <td>8</td>
+                              <td>HD-00001419</td>
+                              <td>
+                                  <ul>
+                                      <li>Bảo Anh</li>
+                                      <li>0912345678</li>
+                                  </ul>
+                              </td>
+                              <td>2023-07-02</td>
+                              <td id = "8">
+                                <span class="badge text-bg-success">Đã xử lý</span>
+                              </td>
+                              <td>
+                                <a href="#" type="button" class="btn btn-light btn-sm " onclick="showPanel('View_Order'), extractOrder('order_8')">
+                                  <i class="fa-solid fa-eye"></i>
+                                </a> 
+                              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal" onclick="Confirm('8')">
+                                <i class="fa-solid fa-pen"></i>
+                              </button>
+                            </td>
+                            </tr>
+                            <tr id = "order_9" class="table-success">
+                              <td>9</td>
+                              <td>HD-00001420</td>
+                              <td>
+                                  <ul>
+                                      <li>Đức Thành</li>
+                                      <li>0876543210</li>
+                                  </ul>
+                              </td>
+                              <td>2023-09-25</td>
+                              <td id = "9">
+                                <span class="badge text-bg-success">Đã xử lý</span>
+                              </td>
+                              <td>
+                                <a href="#" type="button" class="btn btn-light btn-sm" onclick="showPanel('View_Order'), extractOrder('order_9')">
+                                  <i class="fa-solid fa-eye"></i>
+                                </a> 
+                              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal" onclick="Confirm('9')">
+                                <i class="fa-solid fa-pen"></i>
+                              </button>
+                            </td>
+                            </tr>
+                            <tr id = "order_10" >
+                              <td>10</td>
+                              <td>HD-00001421</td>
+                              <td>
+                                  <ul>
+                                      <li>Linh Chi</li>
+                                      <li>0365987452</li>
+                                  </ul>
+                              </td>
+                              <td>2023-10-07</td>
+                              <td id = "10">
+                                <span class="badge text-bg-primary">Chưa xử lý</span>
+                              </td>
+                              <td>
+                                <a href="#" type="button" class="btn btn-light btn-sm" onclick="showPanel('View_Order'), extractOrder('order_10')">
+                                  <i class="fa-solid fa-eye"></i>
+                                </a> 
+                              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal" onclick="Confirm('10')">
+                                <i class="fa-solid fa-pen"></i>
+                              </button>
+                            </td>
+                            </tr>
+                          <tr id = "order_11" class="table-success">
+                            <td>11</td>
+                            <td>HD-00001422</td>
+                            <td>
+                                <ul>
+                                    <li>Hoàng Nam</li>
+                                    <li>0365987542</li>
+                                </ul>
+                            </td>
+                            <td>2023-11-18</td>
+                            <td id = "11">
+                              <span class="badge text-bg-success">Đã xử lý</span>
+                            </td>
+                            <td>
+                              <a href="#" type="button" class="btn btn-light btn-sm" onclick="showPanel('View_Order'), extractOrder('order_11')">
+                                <i class="fa-solid fa-eye"></i>
+                              </a> 
+                            <button type="button" class="btn btn-info btn-sm " data-toggle="modal" data-target="#exampleModal" onclick="Confirm('11')">
+                              <i class="fa-solid fa-pen"></i>
+                            </button>
+                          </td>
+                          </tr>
+                          <tr id = "order_12" >
+                            <td>12</td>
+                            <td>HD-00001423</td>
+                            <td>
+                                <ul>
+                                    <li>Thị Hương</li>
+                                    <li>0365467452</li>
+                                </ul>
+                            </td>
+                            <td>2023-12-03</td>
+                            <td id = "12">
+                              <span class="badge text-bg-success">Đã xử lý</span>
+                            </td>
+                            <td>
+                              <a href="#" type="button" class="btn btn-light btn-sm" onclick="showPanel('View_Order'), extractOrder('order_12')">
+                                <i class="fa-solid fa-eye"></i>
+                              </a> 
+                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal" onclick="Confirm('12')">
+                              <i class="fa-solid fa-pen"></i>
+                            </button>
+                          </td>
+                          </tr>
+                          <tr id = "order_13" class="table-success">
+                            <td>13</td>
+                            <td>HD-00001424</td>
+                            <td>
+                                <ul>
+                                    <li>Phúc Thịnh</li>
+                                    <li>0365768452</li>
+                                </ul>
+                            </td>
+                            <td>2023-01-08</td>
+                            <td id = "13">
+                              <span class="badge text-bg-primary">Chưa xử lý</span>
+                            </td>
+                            <td>
+                              <a href="#" type="button" class="btn btn-light btn-sm" onclick="showPanel('View_Order'), extractOrder('order_13')">
+                                <i class="fa-solid fa-eye"></i>
+                              </a> 
+                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal" onclick="Confirm('13')">
+                              <i class="fa-solid fa-pen"></i>
+                            </button>
+                          </td>
+                          </tr>
+                          <tr id = "order_14" >
+                            <td>14</td>
+                            <td>HD-00001425</td>
+                            <td>
+                                <ul>
+                                    <li>Hải Yến</li>
+                                    <li>0365687452</li>
+                                </ul>
+                            </td>
+                            <td>2023-02-14</td>
+                            <td id = "14">
+                              <span class="badge text-bg-success">Đã xử lý</span>
+                            </td>
+                            <td>
+                              <a href="#" type="button" class="btn btn-light btn-sm" onclick="showPanel('View_Order'), extractOrder('order_14')">
+                                <i class="fa-solid fa-eye"></i>
+                              </a> 
+                            <button type="button" class="btn btn-info btn-sm " data-toggle="modal" data-target="#exampleModal" onclick="Confirm('14')">
+                              <i class="fa-solid fa-pen"></i>
+                            </button>
+                          </td>
+                          </tr>
+                          <tr id = "order_15" class="table-success">
+                            <td>15</td>
+                            <td>HD-00001426</td>
+                            <td>
+                                <ul>
+                                    <li>Duy Quang</li>
+                                    <li>0365987452</li>
+                                </ul>
+                            </td>
+                            <td>2023-03-22</td>
+                            <td id = "15">
+                              <span class="badge text-bg-primary">Chưa xử lý</span>
+                            </td>
+                            <td>
+                              <a href="#" type="button" class="btn btn-light btn-sm" onclick="showPanel('View_Order'), extractOrder('order_15')">
+                                <i class="fa-solid fa-eye"></i>
+                              </a> 
+                              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#exampleModal" onclick="Confirm('15')">
+                                <i class="fa-solid fa-pen"></i>
+                              </button>
+                          </td>
+                          </tr>
+                </tbody>
+              </table>
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#" onclick="showList(1,'#table_order')">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#" onclick="showList(2,'#table_order')">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#" onclick="showList(3,'#table_order')">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div id ='Product' class ="main__panel hidden">
+            <div class="tieu-de">Danh sách sản phẩm</div>
+            <div>
+              <a class="btn btn-primary them" href="#" role="button" onclick="showPanel('Add_Product')"><i class="fa-solid fa-plus"></i> Thêm sản phẩm</a>
+            </div>
+            <div id ='table_product' class="table-responsive bang">
+              <table class="table table-striped table-hover">
+                <thead>
+                  <tr class="bold-text">
+                    <th>STT</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Hình ảnh</th>
+                    <th>Giá bán</th>
+                    <th>Số lượng</th>
+                    <th>Loại</th>
+                    <th>Mô tả</th>
+                    <th>Thao tác</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr id = "product_1" class = "table-success">
+                    <td>1</td>
+                    <td>Khoai lang Nhật hữu cơ</td>
+                    <td>
+                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    </td>
+                    <td>51.000 VND</td>
+                    <td >15</td>
+                    <td>Rau củ</td>
+                    <td>Chưa có mô tả cho sản phẩm này</td>
+                    <td>
+                      <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_Product'), extractProduct('product_1')">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </a>
+                      <button type="button" class="btn btn-danger btn-sm" onclick="Warning(this)">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr id = "product_2" >
+                    <td>2</td>
+                    <td>Bí đỏ hữu cơ Food King</td>
+                    <td>
+                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    </td>
+                    <td>140.000 VND</td>
+                    <td >15</td>
+                    <td>Rau củ</td>
+                    <td>Chưa có mô tả cho sản phẩm này</td>
+                    <td>
+                      <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_Product'), extractProduct('product_2')">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </a>
+                      <button type="button" class="btn btn-danger btn-sm" onclick="Warning(this)">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr id = "product_3" class = "table-success">
+                    <td>3</td>
+                    <td>Bí đỏ non hữu cơ USDA Food King</td>
+                    <td>
+                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    </td>
+                    <td>43.800 VND</td>
+                    <td >15</td>
+                    <td>Rau củ</td>
+                    <td>Chưa có mô tả cho sản phẩm này</td>
+                    <td>
+                      <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_Product'), extractProduct('product_3')">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </a>
+                      <button type="button" class="btn btn-danger btn-sm" onclick="Warning(this)">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr id = "product_4" >
+                    <td>4</td>
+                    <td>Cải ngọt hữu cơ</td>
+                    <td>
+                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    </td>
+                    <td>38.000 VND</td>
+                    <td >15</td>
+                    <td>Rau củ</td>
+                    <td>Chưa có mô tả cho sản phẩm này</td>
+                    <td>
+                      <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_Product'), extractProduct('product_4')">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </a>
+                      <button type="button" class="btn btn-danger btn-sm" onclick="Warning(this)">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr id = "product_5" class = "table-success">
+                    <td>5</td>
+                    <td>Cà chua mini socola hữu cơ</td>
+                    <td>
+                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    </td>
+                    <td>35.000 VND</td>
+                    <td >15</td>
+                    <td>Rau củ</td>
+                    <td>Chưa có mô tả cho sản phẩm này</td>
+                    <td>
+                      <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_Product'), extractProduct('product_5')">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </a>
+                      <button type="button" class="btn btn-danger btn-sm" onclick="Warning(this)">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr id = "product_6" >
+                    <td>6</td>
+                    <td>Nho đỏ có hạt Peru</td>
+                    <td>
+                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    </td>
+                    <td>139.000 VND</td>
+                    <td >15</td>
+                    <td>Hoa quả tươi</td>
+                    <td>Chưa có mô tả cho sản phẩm này</td>
+                    <td>
+                      <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_Product'), extractProduct('product_6')">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </a>
+                      <button type="button" class="btn btn-danger btn-sm" onclick="Warning(this)">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr id = "product_7" class = "table-success">
+                    <td>7</td>
+                    <td>Sầu riêng Musang King Malaysia</td>
+                    <td>
+                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    </td>
+                    <td>599.000 VND</td>
+                    <td >15</td>
+                    <td>Hoa quả tươi</td>
+                    <td>Chưa có mô tả cho sản phẩm này</td>
+                    <td>
+                      <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_Product'), extractProduct('product_7')">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </a>
+                      <button type="button" class="btn btn-danger btn-sm" onclick="Warning(this)">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr id = "product_8" >
+                    <td>8</td>
+                    <td>Bưởi da xanh bọc lưới loại 1</td>
+                    <td>
+                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    </td>
+                    <td>59.000 VND</td>
+                    <td >15</td>
+                    <td>Hoa quả tươi</td>
+                    <td>Chưa có mô tả cho sản phẩm này</td>
+                    <td>
+                      <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_Product'), extractProduct('product_8')">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </a>
+                      <button type="button" class="btn btn-danger btn-sm" onclick="Warning(this)">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr id = "product_9" class = "table-success">
+                    <td>9</td>
+                    <td>Táo xanh Granny Smith Mỹ size 100</td>
+                    <td>
+                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    </td>
+                    <td>129.000 VND</td>
+                    <td >15</td>
+                    <td>Hoa quả tươi</td>
+                    <td>Chưa có mô tả cho sản phẩm này</td>
+                    <td>
+                      <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_Product'), extractProduct('product_9')">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </a>
+                      <button type="button" class="btn btn-danger btn-sm" onclick="Warning(this)">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr id = "product_10" >
+                    <td>10</td>
+                    <td>Cam Cara Mỹ</td>
+                    <td>
+                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    </td>
+                    <td>169.000 VND</td>
+                    <td >15</td>
+                    <td>Hoa quả tươi</td>
+                    <td>Chưa có mô tả cho sản phẩm này</td>
+                    <td>
+                      <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_Product'), extractProduct('product_10')">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </a>
+                      <button type="button" class="btn btn-danger btn-sm" onclick="Warning(this)">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr id = "product_11" class = "table-success">
+                    <td >11</td>
+                    <td>Ba rọi heo rút sườn C.P</td>
+                    <td>
+                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    </td>
+                    <td>119.000 VND</td>
+                    <td >15</td>
+                    <td>Thực phẩm tươi sống</td>
+                    <td>Chưa có mô tả cho sản phẩm này</td>
+                    <td>
+                      <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_Product'), extractProduct('product_11')">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </a>
+                      <button type="button" class="btn btn-danger btn-sm" onclick="Warning(this)">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr id = "product_12" >
+                    <td>12</td>
+                    <td>Nạm bò Úc tươi Trung Đồng hút chân không</td>
+                    <td>
+                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    </td>
+                    <td>84.000 VND</td>
+                    <td >15</td>
+                    <td>Thực phẩm tươi sống</td>
+                    <td>Chưa có mô tả cho sản phẩm này</td>
+                    <td>
+                      <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_Product'), extractProduct('product_12')">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </a>
+                      <button type="button" class="btn btn-danger btn-sm" onclick="Warning(this)">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr  id = "product_13" class = "table-success">
+                    <td>13</td>
+                    <td>Vai bò Úc tươi Trung Đồng hút chân không</td>
+                    <td>
+                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    </td>
+                    <td>120.000 VND</td>
+                    <td >15</td>
+                    <td>Thực phẩm tươi sống</td>
+                    <td>Chưa có mô tả cho sản phẩm này</td>
+                    <td>
+                      <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_Product'), extractProduct('product_13')">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </a>
+                      <button type="button" class="btn btn-danger btn-sm" onclick="Warning(this)">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr id = "product_14" >
+                    <td>14</td>
+                    <td>Tôm thẻ tươi đông lạnh</td>
+                    <td>
+                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    </td>
+                    <td>109.000 VND</td>
+                    <td >15</td>
+                    <td>Thực phẩm tươi sống</td>
+                    <td>Chưa có mô tả cho sản phẩm này</td>
+                    <td>
+                      <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_Product'), extractProduct('product_14')">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </a>
+                      <button type="button" class="btn btn-danger btn-sm" onclick="Warning(this)">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr id = "product_15" class = "table-success">
+                    <td >15</td>
+                    <td>Nghêu Hai Cồi</td>
+                    <td>
+                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    </td>
+                    <td>105.000 VND</td>
+                    <td >15</td>
+                    <td>Thực phẩm tươi sống</td>
+                    <td>Chưa có mô tả cho sản phẩm này</td>
+                    <td>
+                      <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_Product'), extractProduct('product_15')">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </a>
+                      <button type="button" class="btn btn-danger btn-sm" onclick="Warning(this)">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr id = "product_16" >
+                    <td>16</td>
+                    <td>Yến mạch ăn liền Quaker hộp 600g</td>
+                    <td>
+                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    </td>
+                    <td>115.000 VND</td>
+                    <td >15</td>
+                    <td>Ngũ cốc</td>
+                    <td>Chưa có mô tả cho sản phẩm này</td>
+                    <td>
+                      <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_Product'), extractProduct('product_16')">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </a>
+                      <button type="button" class="btn btn-danger btn-sm" onclick="Warning(this)">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr  id = "product_17" class = "table-success">
+                    <td>17</td>
+                    <td>Ngũ cốc dinh dưỡng Ohh Granola hộp 250g</td>
+                    <td>
+                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    </td>
+                    <td>164.000 VND</td>
+                    <td >15</td>
+                    <td>Ngũ cốc</td>
+                    <td>Chưa có mô tả cho sản phẩm này</td>
+                    <td>
+                      <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_Product'), extractProduct('product_17')">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </a>
+                      <button type="button" class="btn btn-danger btn-sm" onclick="Warning(this)">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr id = "product_18" >
+                    <td>18</td>
+                    <td>Ngũ cốc trái cây Calbee gói 700g</td>
+                    <td>
+                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    </td>
+                    <td>280.000 VND</td>
+                    <td >15</td>
+                    <td>Ngũ cốc</td>
+                    <td>Chưa có mô tả cho sản phẩm này</td>
+                    <td>
+                      <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_Product'), extractProduct('product_18')">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </a>
+                      <button type="button" class="btn btn-danger btn-sm" onclick="Warning(this)">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr id = "product_19" class = "table-success">
+                    <td >19</td>
+                    <td>Bánh ngũ cốc Simba Choco Chips</td>
+                    <td>
+                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    </td>
+                    <td>25.000 VND</td>
+                    <td >15</td>
+                    <td>Ngũ cốc</td>
+                    <td>Chưa có mô tả cho sản phẩm này</td>
+                    <td>
+                      <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_Product'), extractProduct('product_19')">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </a>
+                      <button type="button" class="btn btn-danger btn-sm" onclick="Warning(this)">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr id = "product_20" >
+                    <td>20</td>
+                    <td>Ngũ cốc Nestlé Koko Krunch</td>
+                    <td>
+                      <!-- <img src ="../Image/Product/KhoaiLang.jpg" alt ="image"> -->
+                    </td>
+                    <td>25.000 VND</td>
+                    <td >15</td>
+                    <td>Ngũ cốc</td>
+                    <td>Chưa có mô tả cho sản phẩm này</td>
+                    <td>
+                      <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_Product'), extractProduct('product_20')">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                      </a>
+                      <button type="button" class="btn btn-danger btn-sm" onclick="Warning(this)">
+                        <i class="fa-solid fa-trash-can"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#" onclick="showList(1,'#table_product')">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#" onclick="showList(2,'#table_product')">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#" onclick="showList(3,'#table_product')">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#" onclick="showList(4,'#table_product')">4</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div id = 'User' class = "main__panel hidden">
+            <div class = "tieu-de">Danh sách người dùng</div>
+            <div>
+              <a class="btn btn-primary them" href="#" role="button" onclick="showPanel('Add_User')"><i class="fa-solid fa-plus"></i> Thêm người dùng</a>
+            </div>
+            <div id ='table_user' class = "table-responsive bang">
+              <table class="table table-striped table-hover">
+                  <thead>
+                      <tr class = "bold-text">
+                          <th>STT</th>
+                          <th>Mã người dùng</th>
+                          <th>Tên đăng nhập</th>
+                          <th>Gmail</th>
+                          <th>Số điện thoại</th>
+                          <th>Quyền</th>
+                          <th>Trạng thái</th>
+                          <th>Thao tác</th>
+                      </tr>
+                </thead>
+                <tbody>
+                      <tr id = "user_1" class="table-success">
+                        <td>1</td>
+                        <td>ND-000001</td>
+                        <td>admin</td>
+                        <td>admin@gmail.com</td>
+                        <td>0987654321</td>
+                        <td>Admin</td>
+                        <td id = 'u1'>
+                          <span class="badge text-bg-success">Đang hoạt động</span>
+                        </td>
+                        <td>
+                          <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_User'), extractUser('user_1')">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                          </a>
+                          <button type="button" class="btn btn-light btn-sm" onclick="Lock('u1')">
+                            <i class="fa-solid fa-key"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr id = "user_2" >
+                        <td>2</td>
+                        <td>ND-000002</td>
+                        <td>user1</td>
+                        <td>user1@gmail.com</td>
+                        <td>0987654321</td>
+                        <td>User</td>
+                        <td id = "u2">
+                          <span class="badge text-bg-success">Đang hoạt động</span>
+                        </td>
+                        <td>
+                          <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_User'), extractUser('user_2')">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                          </a>
+                          <button type="button" class="btn btn-light btn-sm" onclick="Lock('u2')">
+                            <i class="fa-solid fa-key"></i>
+                          </button>
+                        </td>
+                      <tr id = "user_3" class="table-success">
+                        <td>3</td>
+                        <td>ND-000003</td>
+                        <td>user2</td>
+                        <td>user2@gmail.com</td>
+                        <td>0987654321</td>
+                        <td>User</td>
+                        <td id = "u3">
+                          <span class="badge text-bg-success">Đang hoạt động</span>
+                        </td>
+                        <td>
+                          <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_User'), extractUser('user_3')">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                          </a>
+                          <button type="button" class="btn btn-light btn-sm" onclick="Lock('u3')">
+                            <i class="fa-solid fa-key"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr id = "user_4" >
+                        <td>4</td>
+                        <td>ND-000004</td>
+                        <td>use2</td>
+                        <td>user3@gmail.com</td>
+                        <td>0987654321</td>
+                        <td>User</td>
+                        <td id ='u4'>
+                          <span class="badge text-bg-danger">Đã khóa</span>
+                        </td>
+                        <td>
+                          <a href="#" type="button" class="btn btn-info btn-sm" onclick="showPanel('Edit_User'), extractUser('user_4')">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                          </a>
+                          <button type="button" class="btn btn-light btn-sm" onclick="Lock('u4')">
+                            <i class="fa-solid fa-key"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      
+                </tbody>
+              </table>
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#", onclick="showList(1,'table_user')">1</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav> 
+            </div>
+          </div>
+        </div> 
+        <div>
+          <div id = 'Statistic' class = "main__panel hidden" >
+            <div class = "tieu-de">Thống kê</div>
+              <div id = 'table_statistic'class = "table-responsive bang">
+              <div class = 'radio_class'>
+                <input type="radio" name="chon" value="ten" id="ten" onclick="check('radio_name','radio_type')" checked>
+                <label for ='ten' >Theo tên sản phẩm</label>
+                <input type="radio" name="chon" value="loai" id="loai" onclick="check('radio_type','radio_name')">
+                <label for ='loai' >Theo loại sản phẩm</label>
+              </div>
+              <div id = "radio_name" class="date">
+                <input type="text" name="tenSp" id="tenSp" placeholder="Tên sản phẩm" style="font-size: 18px;">
+                <label for="start">Từ ngày: </label>
+                <input type="date" id="start" name="start" value="2023-01-15" min="2018-01-01" max="2023-12-31">
+                <label for="start">đến </label>
+                <input type="date" id="end" name="end" value="2023-11-30" min="2018-01-01" max="2023-12-31">
+                <a href="#" type="button" class="btn btn-info btn-sm" style="font-size: 16px;" onclick="_show('tong_so_luong','tong_tien')">
+                  Thống kê
+                </a> 
+              </div>
+              <div id = "radio_type" class="date">
+                <select name="loai__sp" id="loai__sp" style="font-size: 18px;">
+                  <option value="rau">Rau củ</option>
+                  <option value="qua">Hoa quả tươi</option>
+                  <option value="thit">Thực phẩm tươi sống</option>
+                  <option value="ngucoc">Ngũ cốc</option>
+                </select>
+                <label for="start">Từ ngày: </label>
+                <input type="date" id="start" name="start" value="2023-01-15" min="2018-01-01" max="2023-12-31">
+                <label for="start">đến </label>
+                <input type="date" id="end" name="end" value="2023-11-30" min="2018-01-01" max="2023-12-31">
+                <a href="#" type="button" class="btn btn-info btn-sm" style="font-size: 16px;" onclick="_show('tong_so_luong','tong_tien')">
+                  Thống kê
+                </a> 
+              </div>  
+             
+              <table class="table table-striped table-hover">
+                  <thead>
+                      <tr class = "bold-text">
+                          <th>STT</th>
+                          <th>Mã đơn hàng</th>
+                          <th>Tên khách hàng</th>
+                          <th>Số lượng</th>
+                          <th>Thành tiền</th>
+                      </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-success">
+                    <td>1</td>
+                    <td>HD-00001413</td>
+                    <td>Trần Thị B</td>
+                    <td>2</td>
+                    <td>240.000 VND</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>HD-00001416</td>
+                    <td>Hoàng Văn E</td>
+                    <td>3</td>
+                    <td>360.000 VND</td>
+                  </tr>
+                  <tr class="table-success">
+                    <td>3</td>
+                    <td>HD-00001419</td>
+                    <td>Bảo Anh</td>
+                    <td>2</td>
+                    <td>240.000 VND</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>HD-00001420</td>
+                    <td>Đức Thành</td>
+                    <td>3</td>
+                    <td>360.000 VND</td>
+                  </tr>
+                  <tr class="table-success">
+                    <td>5</td>
+                    <td>HD-00001422</td>
+                    <td>Hoàng Nam</td>
+                    <td>4</td>
+                    <td>480.000 VND</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>HD-00001423</td>
+                    <td>Thị Hương</td>
+                    <td>1</td>
+                    <td>120.000 VND</td>
+                  </tr>
+                  <tr class="table-success">
+                    <td>7</td>
+                    <td>HD-00001426</td>
+                    <td>Duy Quang</td>
+                    <td>4</td>
+                    <td>480.000 VND</td>
+                  </tr>
+                </tbody>
+              </table> 
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#" onclick="showList(1,'#table_statistic')">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#" onclick="showList(2,'#table_statistic')">2</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav> 
+              <div id ="tong_so_luong" class ="bold-text" style="text-align: right; margin-right: 147px; margin-bottom: 30px; display: none;">
+                <label style="margin-right: 10px;">Tổng số lượng:</label>
+                <label style="margin-right: 5px;">19</label>
+              </div>  
+              <div id ="tong_tien" class ="bold-text" style="text-align: right; margin-right: 80px; display: none;">
+                <label style="margin-right: 10px;">Tổng tiền:</label>
+                <label style="margin-right: 5px;">1.396.000</label><label> VND</label>
+              </div>    
+          </div>  
+        </div>
+      </div>
+      <div>
+        <div id ="View_Order" class = "main__panel hidden" >
+          <div class = "tieu-de">Xem đơn hàng</div>
+          <form> 
+            <div class = "inline can_giua" >
+              <div class ="element">
+                <label for="code_order" class = "_label">Mã đơn hàng</label>
+                <input type="text" class="form-control" id="code_order" name="code_order" value="DH-1323000" disabled>
+              </div>
+              <div class ="element">
+                <label for="name_order" class = "_label">Tên khách hàng</label>
+                <input type="text" class="form-control" id="name_order" name="name_order" value="DH-1323000" disabled>
+              </div>
+              <div class ="element">
+                <label for="phone_order" class = "_label">Số điện thoại</label>
+                <input type="text" class="form-control" id="phone_order" name="phone_order" value="DH-1323000" disabled>
+              </div>
+              <div class = "element">
+                <label for="status_order" class = "_label">Trạng thái</label>
+                <input type="text" class="form-control" id="status_order" name="status_order" value="DH-1323000" disabled>
+              </div>
+            </div>
+            <div>
+              <label for="diachi" class = "_label" style="font-size: 18px;" >Địa chỉ nhận hàng</label>
+              <div class="dia-chi" >
+                <div class = "inline" >
+                  <div class ="element">
+                    <label for="ward" class = "_label">Phường/Xã</label>
+                    <input type="text" class="form-control" id="ward" name="ward" value="Phường 1" disabled>
+                  </div>
+                  <div class ="element">
+                    <label for="district" class = "_label">Quận/Huyện</label>
+                    <input type="text" class="form-control" id="district" name="district" value="Quận Bình Thạnh" disabled>
+                  </div>
+                  <div class ="element">
+                    <label for="city" class = "_label">Tỉnh/Thành phố</label>
+                    <input type="text" class="form-control" id="city" name="city" value="Thành phố Hồ Chí Minh" disabled>
+                  </div>
+                </div>
+                <input type="text" style ="width: 60%;"class="form-control" id="duong" name="duong" value="Số 123, đường Nguyễn Văn A" disabled>
+              </div>
+            </div>
+            <div class ="bang_nho" style="margin-top: 20px;">
+              <table class="table table-striped">
+                <thead>
+                  <tr class = "bold-text" style="font-size: 18px;">
+                    <th>STT</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Nho đỏ có hạt Peru</td>
+                      <td>139.000 VND</td>
+                      <td>2</td>
+                      <td>278.000 VND</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Sầu riêng Musang King Malaysia</td>
+                      <td>559.000 VND</td>
+                      <td>2</td>
+                      <td>1.118.000 VND</td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>  
+            <div class ="bold-text" style="text-align: right; margin-right: 80px;">
+              <label style="margin-right: 10px;">Tổng tiền:</label>
+              <label style="margin-right: 5px;">1.396.000</label><label> VND</label>
+            </div>
+            <button type="button" class="btn btn-light bold-text" onclick="showPanel('Order')">Quay lại</button>
+          </form>
+        </div>
+      </div>
+      <div>
+        <div id ="Add_Product" class = "main__panel hidden">
+          <div class = "tieu-de">Thêm sản phẩm</div>
+          <form>
+            <div class = "giua" >
+              <img src="../Image/pic.png" id ="file_hinh" >
+              <div class = "label">
+                <label for="input_file" class="change_button" style="margin-right: 10px;">Thêm</label>
+                <input type="file" id="input_file" accept="image/*">
+              </div>
+            </div>
+            <div class ="inline can_giua" style="margin-top: 20px;">
+              <div class = "element">
+                <label for="name_add_product" class = "_label">Tên sản phẩm</label>
+                <input type="text" class="form-control" id="name_add_product" name="name_add_product" placeholder="Nhập tên sản phẩm" >
+              </div>
+              <div class = "element">
+                <label for="type_add_product" class = "_label">Loại sản phẩm</label>
+                <br>
+                <select name="type_add_product" id="type_add_product" style="font-size: 16px; padding: 7px;">
+                  <option>Rau củ</option>
+                  <option>Hoa quả tươi</option>
+                  <option>Thực phẩm tươi sống</option>
+                  <option>Ngũ cốc</option>
+                </select>
+              </div>
+              <div class = "element">
+                <label for="price_add_product" class = "_label">Giá bán</label>
+                <input type="text" class="form-control" id="price_add_product"name="price_add_product" placeholder="Nhập giá bán" >
+              </div>
+              <div class = "element">
+                <label for="quantity_add_product" class = "_label">Số lượng</label>
+                <input type="text" class="form-control" id="quantity_add_product" name="quantity_add_product"placeholder="Nhập số lượng" >
+              </div>
+            </div>
+            <div class ="element">
+              <label for="status_add_product" class = "_label" style="font-size: 18px; margin-top: 10px;" >Mô tả</label>
+              <textarea class="form-control" id="status_add_product" rows="4"></textarea>
+            </div>
+            <div class = "element">
+              <button type="button" class="btn btn-info" style="margin-right: 10px;" onclick="warningAddProduct()">Thêm</button>
+              <button type="button" class="btn btn-secondary" onclick="showPanel('Product')">Hủy bỏ</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div>
+        <div id = "Edit_Product" class = "main__panel hidden">
+          <div class = "tieu-de">Chỉnh sửa sản phẩm</div>
+          <form>
+            <div class = "giua" >
+              <img id = "file_hinh" src="../Image/pic.png">
+            </div>
+            <div class = "giua">
+              <div class = "label" style="display: inline-block;">
+                <label for="input_file" class="change_button" >Thay đổi</label>
+                <input type="file" id="input_file" accept="image/*">
+              </div>
+              <div class = "label" style="display: inline-block;" >
+                <label for="input_file" class="change_button" style="margin-right: 10px; background-color: #dc3545;">Xóa</label>
+                <input type="file" id="input_file" accept="image/*">
+              </div>
+            </div>
+            <div class ="inline can_giua" style="margin-top: 20px;">
+              <div class = "element">
+                <label for="name_edit_product" class = "_label">Tên sản phẩm</label>
+                <input type="text" class="form-control" id="name_edit_product"name="name_edit_product" placeholder="Nhập tên sản phẩm" >
+              </div>
+              <div class = "element">
+                <label for="type_edit_product" class = "_label">Loại sản phẩm</label>
+                <br>
+                <select name="type_edit_product" id="type_edit_product" style="font-size: 16px; padding: 7px;">
+                  <option >Rau củ</option>
+                  <option >Hoa quả tươi</option>
+                  <option >Thực phẩm tươi sống</option>
+                  <option >Ngũ cốc</option>
+                </select>
+              </div>
+              <div class = "element">
+                <label for="price_edit_product" class = "_label">Giá bán</label>
+                <input type="text" class="form-control" id="price_edit_product" name="price_edit_product" placeholder="Nhập giá bán" >
+              </div>
+              <div class = "element">
+                <label for="quantity_edit_product" class = "_label">Số lượng</label>
+                <input type="text" class="form-control" id="quantity_edit_product" name="quantity_edit_product"placeholder="Nhập số lượng" >
+              </div>
+            </div>
+            <div class ="element">
+              <label for="status_edit_product" class = "_label" style="font-size: 18px; margin-top: 10px;" >Mô tả</label>
+              <textarea class="form-control" id="status_edit_product" rows="4"></textarea>
+            </div>
+            <div class = "element">
+              <button type="button" class="btn btn-info" style="margin-right: 10px;" onclick="notification()">Lưu</button>
+              <button type="button" class="btn btn-secondary" onclick="showPanel('Product')">Hủy bỏ</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div>
+        <div id ="Add_User" class = "main__panel hidden">
+          <div class = "tieu-de">Thêm người dùng</div>
+            <form>
+              <div class = "inline can_giua" style="margin-right: 150px; margin-left: 150px;">
+                <div class ="element">
+                  <label for="code_add_user" class = "_label">Mã người dùng</label>
+                  <input type="text" class="form-control" id="code_add_user" name="code_add_user">
+                </div>
+                <div class ="element">
+                  <label for="name_add_user"" class = "_label">Tên người dùng</label>
+                  <input type="text" class="form-control" id="name_add_user" name="name_add_user">
+                </div>
+                <div class ="element">
+                  <label for="status_add_user" class = "_label">Trạng thái</label>
+                  <input type="text" class="form-control" id="status_add_user" name="status_add_user" value="Đang hoạt động" disabled>
+                </div>
+              </div>
+              <div class = "inline can_giua" style="margin-right: 150px; margin-left: 150px;">
+                  <div class ="element">
+                    <label for="gmail_add_user" class = "_label">Gmail</label>
+                    <input type="text" class="form-control" id="gmail_add_user" name="gmail_add_user">
+                  </div>
+                  <div class ="element">
+                    <label for="phone_add_user" class = "_label">Số điện thoại</label>
+                    <input type="text" class="form-control" id="phone_add_user" name="phone_add_user">
+                  </div>
+                  <div class ="element">
+                    <label for="quyen_add_user" class = "_label">Quyền</label>
+                    <input type="text" class="form-control" id="quyen_add_user"  name="quyen_add_user" >
+                  </div>
+                </div>
+                <div class = "element">
+                <button type="button" class="btn btn-info" style="margin-right: 10px;" onclick="warningAddUser()">Thêm</button>
+                <button type="button" class="btn btn-secondary" onclick="showPanel('User')">Hủy bỏ</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div>
+          <div id ="Edit_User"class = "main__panel hidden"  >
+            <div class = "tieu-de">Chỉnh sửa người dùng</div>
+              <form>
+                <div class = "inline can_giua" style="margin-right: 150px; margin-left: 150px;">
+                  <div class ="element">
+                    <label for="code_edit_user" class = "_label">Mã người dùng</label>
+                    <input type="text" class="form-control" id="code_edit_user" name="code_edit_user">
+                  </div>
+                  <div class ="element">
+                    <label for="name_edit_user" class = "_label">Tên người dùng</label>
+                    <input type="text" class="form-control" id="name_edit_user" name="name_edit_user">
+                  </div>
+                  <div class ="element">
+                    <label for="status_edit_user" class = "_label">Trạng thái</label>
+                    <input type="text" class="form-control" id="status_edit_user" name="status_edit_user" disabled>
+                  </div>
+                </div>
+                <div class = "inline can_giua" style="margin-right: 150px; margin-left: 150px;">
+                    <div class ="element">
+                      <label for="gmail_edit_user" class = "_label">Gmail</label>
+                      <input type="text" class="form-control" id="gmail_edit_user" name="gmail_edit_user">
+                    </div>
+                    <div class ="element">
+                      <label for="phone_edit_user" class = "_label">Số điện thoại</label>
+                      <input type="text" class="form-control" id="phone_edit_user" name="phone_edit_user">
+                    </div>
+                    <div class ="element">
+                      <label for="quyen_edit_user" class = "_label">Quyền</label>
+                      <input type="text" class="form-control" id="quyen_edit_user" name="quyen_edit_user">
+                    </div>
+                  </div>
+                  <div class = "element">
+                  <button type="button" class="btn btn-info" style="margin-right: 10px;" onclick="notificationUser()">Lưu</button>
+                  <button type="button" class="btn btn-secondary" onclick="showPanel('User')">Hủy bỏ</button>
+                </div>
+              </form>
+            </div>
+          </div>
+      </div>
+
+    </div>
+  </body>
+</html>

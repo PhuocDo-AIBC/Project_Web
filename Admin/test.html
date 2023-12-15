@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href=" https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="../img/ShortCut_Icon.png">
+    <link rel="stylesheet" href="../css/Base.css"> <!-- CSS Base -->
+    <link rel="stylesheet" href="../css/Grid.css"> <!-- Grid System -->
+    <link rel="stylesheet" href="../css/Responsive.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Administrator</title>
+    <script src="./script/HandlerAdmin.js"></script>
+</head>
+
+<body>
+    <div class="main-body"> 
+        <div class="header">
+            <div class="grid wide">
+                <div class="header-content">
+                    <div class="header-logo">
+                        OakTree - Administrator
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="grid max-Width">
+                <div class="row sm-gutter">
+
+                    <div class="col l-8 m-12 c-12">
+                        <div class="container-main">
+                            <div class="container-title">Tài khoản</div>
+                            <div class="container-table" style="max-height: 35vh;">
+                                <table id="userlist"></table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col l-4 m-12 c-12">
+                        <div class="container-main">
+                            <div class="container-title">Đơn hàng</div>
+                            <div class="container-table" style="max-height: 35vh;">
+                                <table id="confirm-order"></table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col l-12 m-12 c-12">
+                        <div class="container-main">
+                            <div class="container-title">Sản Phẩm</div>
+                            <div class="container-table" style="max-height: 80vh;">
+                                <table id="productlist"></table>
+                            </div>
+                            <div class="btn_Admin">
+                                <div class="btn-Product js-addTypeProduct">Thêm thể loại</div>
+                                <div class="btn-Product js-addProduct">Thêm sản phẩm</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- form thêm sản phẩm  -->
+        <div class="AddProduct_Wrap">
+            <div class="Add_Product_main">
+                <div class="Add_Product_header">Thêm sản phẩm</div>
+                <div class="reg-btn__close js-close-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+
+                <form id="addProduct" class="AP-container--item" method="get">
+                    <div class="AP-body">
+                        <div class="add-group">
+                            <input id="js-item-name" type="text" class="input-field" placeholder="Nhập vào tên sản phẩm"
+                                required>
+                            <input id="js-item-price" type="number" class="input-field"
+                                placeholder="Nhập vào giá sản phẩm (VNĐ)" required>
+                            <select id="AddOption" class="input-field js-addOption" name="option"></select>
+                            <input type="file" class="input-field" required>
+                            <button id="js-btn-product" type="button" class="add-btn">Thêm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- form thêm loại sản phẩm  -->
+        <div class="AddTypeProduct_Wrap">
+            <div class="AddType_Product_main">
+                <div class="AddType_Product_header">Thêm loại sản phẩm</div>
+                <div class="reg-btn__close js-close-btn4">
+                    <i class="fas fa-times"></i>
+                </div>
+
+                <form id="addTypeProduct" class="AP-container--item" method="get">
+                    <div class="AP-body">
+                        <div class="add-group">
+                            <input id="js-item-Type--id" type="text" class="input-field" placeholder="Nhập id thể loại"required>
+                            <input id="js-item-Type--name" type="text" class="input-field" placeholder="Nhập tên thể loại"required>
+                            <button id="js-btn-product--typpe" type="button" class="add-btn">Thêm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- form sửa thông tin sản phẩm  -->
+        <div class="ChangeProduct_Wrap">
+            <div class="Change_Product_main">
+                <div class="Change_Product_header">Sửa sản phẩm</div>
+                <div class="reg-btn__close js-close-btn2">
+                    <i class="fas fa-times"></i>
+                </div>
+
+                <form id="changeProduct" class="change-container--item" method="get">
+                    <div class="CP-body">
+                        <div class="change-group">
+                            <input id="js-item-nameC" type="text" class="input-field" placeholder="Nhập vào tên sản phẩm" required>
+                            <input id="js-item-priceC" type="number" class="input-field" placeholder="Nhập vào giá sản phẩm (VNĐ)" required>
+                            <select id="AddOptionC" class="input-field" name="option"></select>
+                            <input type="file" class="input-field" required>
+                            <button id="js-btn-productC" type="button" class="change-btn">Thay đổi</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <!-- form xác nhận thông tin sản phẩm -->
+        <div class="ConfirmListCart_Wrap">
+            <div class="ConfirmListCart_main">
+                <div class="ConfirmListCart_header">Xác nhận sản phẩm</div>
+                <div class="reg-btn__close js-close-btn3">
+                    <i class="fas fa-times"></i>
+                </div>
+                <!-- in ra sản phẩm của người mua ở đây -->
+                <div class="container-table" style="min-height: 35vh;">
+                    <table id="product-list"></table>
+                </div>
+                <div id="product-list--price"></div>
+                <div class="flex-wrap">
+                    <button id="unconfirm" type="button" class="confirm-btn" onclick="unConfirmOrder()">Huỷ đơn
+                        hàng</button>
+                    <button id="confirm" type="button" class="confirm-btn" onclick="ConfirmOrder()">Chấp nhận đơn
+                        hàng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

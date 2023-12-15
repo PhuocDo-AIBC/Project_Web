@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+:root {
+  --text__color: rgb(0, 0, 0);
+  --primary-color: #91ad41;
+}
+img {
+  max-width: 100%;
+}
+html {
+  font-size: 62.5%;
+}
+a {
+  text-decoration: none;
+}
+
+body {
+  font-size: 1.6rem;
+  /* font-family: ; */
+}

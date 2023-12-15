@@ -1,0 +1,131 @@
+body{
+        background-color: #c7dbd2;
+}
+tbody td {
+        font-size: 16px;
+        vertical-align: middle;
+}
+thead {
+     
+        vertical-align: middle;
+}
+
+.main__panel{
+        background-color: #fff;
+        padding: 20px; 
+        margin-bottom:  80px;
+        margin-top: 100px;
+        transition: transform 0.3s ease-in-out;
+        font-size: 22px;
+        border-radius: 15px;
+}
+.main__panel:hover {
+        transform: translateZ(10px);
+}
+.bold-text{
+       font-weight: bold; 
+}
+
+.tieu-de {
+        margin-bottom: 20px;
+        color: #e9564f;
+        font-weight: bold;
+}
+.them{
+        margin-bottom: 20px;
+}
+li {
+        padding-bottom: 10px;
+}
+ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+}
+.le {
+        background-color:  #B1CABA;
+}
+.xem {
+        display: none;   
+}
+.duyet{
+        display: none;
+}
+.hidden{
+        display: none;
+}
+.pagination {
+        display: flex;
+        justify-content: center;
+      }
+.bang tbody tr {
+        height: 100px;
+} 
+.bang_nho tbody tr {
+        height: 60px;
+} 
+.date input {
+        margin-right: 10px;
+        margin-left: 10px;
+        font-size: 16px;
+        padding: 3px;
+}     
+tbody tr td {
+        font-size: 18px;
+}
+.label{
+        font-size: 18px;
+}
+.radio_class{
+        margin: 10px;  
+        padding: 3px;
+}
+.red{
+        color: red;
+}
+.element{
+        font-size: 18px;
+        margin-bottom: 20px;
+        margin-right: 50px;
+}
+._label{
+        margin-bottom: 10px;
+}
+.inline{
+        display: flex;
+}
+.dia-chi {
+        border: 1px solid #c7dbd2;
+        padding: 15px;
+        border-top-left-radius: 5px;
+        position: relative; 
+        border-style: groove;
+        width: 60%;
+}
+.giua{
+        text-align: center;
+}
+.can_giua{
+        display: flex;
+        justify-content: space-between;  
+}
+#input_file {
+        display: none;
+}
+
+.change_button {
+        background-color: #0dcaf0;
+        color: black;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 5px;
+        border: none;
+        display: inline-block;
+}
+.input-file-button:hover {
+        background-color: #0dcaf0;
+}
+#file_hinh{
+        width: 400px;
+        height: 400px;
+}
