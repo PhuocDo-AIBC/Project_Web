@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://web.nvnstatic.net/css/owlCarousel/owl.carousel.min.2.3.4.css?v=23" type="text/css">
+    <link rel="preload" href="https://web.nvnstatic.net/tp/T0307/font/Quicksand-VariableFont_wght.ttf" as="font"
+        type="font/ttf" crossorigin />
+    <link rel="stylesheet" , href="Fonts/fontawesome-free-6.4.2-web/css/all.min.css " />
+    <!-- CSS Base-->
+    <link rel="stylesheet" href="cssbody/row.css" />
+    <link rel="stylesheet" href="cssbody/owlCarousel.css" />
+    <link rel="stylesheet" href="cssbody/Bootstap.css" />
+    <link rel="stylesheet" href="cssbody/Body.css" />
+    <link rel="stylesheet" href="cssbody/font-awesome.css" />
+    <link rel="stylesheet" href="cssbody/style.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" , href="css/header.css" />
+    <!-- Reset CSS -->
+    <link rel="stylesheet" , href="css/reset.css" />
+
+    <title>Tìm kiếm - Vermouth</title>
+
+    <style>
+        .search-result-item {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .search-result-item .product {
+            text-align: center;
+        }
+
+        .search-result-item .img-product img {
+            width: 100%;
+            height: auto;
+        }
+
+        .search-result-item .product-body {
+            margin-top: 10px;
+        }
+
+        .search-result-item .product-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .search-result-item .price {
+            color: #e44d26;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<>
+    <div class="main__body">
+        <!--Phần header-->
+        <header class="header">
+            <div class="header__content">
+                <nav class="navbar">
+                    <!-- Logo -->
+                    <a href="#"><img class="header__logo__img" src="Image/logo.png" alt="" /></a>
+                    <!-- Navigation -->
+                    <ul class="header__list">
+                        <!-- Nút "Trang chủ" trong header -->
+                        <li class="header__item" onclick="goToHomePage()">Trang chủ</li>
+                        <!-- Các phần tử khác trong header -->
+                        <li class="header__item">
+                            <a href="#">Sản Phẩm</a>
+                            <span class="caret"></span>
+                            <ul class="sanpham__list">
+                                <li class="sanpham_item"><a href="raucu.html">Rau củ</a></li>
+                                <li class="sanpham_item"><a href="hoaqua.html">Hoa quả tươi</a></li>
+                                <li class="sanpham_item">
+                                    <a href="thucphamtuoisong.html">Thực phẩm tươi sống</a>
+                                </li>
+                                <li class="sanpham_item"><a href="ngucoc.html">Ngũ cốc</a></li>
+                            </ul>
+                        </li>
+                        <li class="header__item"><a href="#">Tin tức</a></li>
+                        <li class="header__item"><a href="#">Liên hệ</a></li>
+                        <li class="header__item"><a href="#">Sale up To 50%</a></li>
+                    </ul>
+                    <!-- Action -->
+                    <div class="header__action__container">
+                        <div class="action__cart-bag">
+                            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                            <span class="cout_cart">0</span>
+                        </div>
+                        <div class="action__user">
+                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                        </div>
+                        <div class="action_search">
+                            <i class="fa fa-search iconSearchDesktop" aria-hidden="true" data-metatip="true"></i>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div class="header__panel" style="max-width:1000vh">
+        </div>
+
+        <!-- Kết quả tìm kiếm -->
+        <div class="container">
+            <!-- Nơi hiển thị kết quả tìm kiếm -->
+            <div id="searchResultsContainer" class="row">
+                <!-- Kết quả tìm kiếm sẽ được hiển thị ở đây -->
+                <!-- Dùng JavaScript để lấy thông tin truyền từ trang index.html và hiển thị kết quả -->
+                <script>
+                    var searchQuery = new URLSearchParams(window.location.search).get('query');
+                    if (searchQuery) {
+                        document.getElementById('searchResultsContainer').innerHTML = 'Đang tìm kiếm với từ khóa: ' + searchQuery;
+                    }
+                </script>
+            </div>
+        </div>
+
+        <!--Phần footer-->
+        <div class="footer_">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 widget_first_childs">
+                        <div class="logo_footer">
+                            <a href="/">
+                                <img src="https://pos.nvncdn.net/16a837-71503/store/20200325_7rMt2KlqTHJrITcloxlSka0u.png"
+                                    alt="Logo">
+                            </a>
+                        </div>
+                        <div class="contact_footer">
+                            <ul>
+                                <li>
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    <span>30 Phạm Văn Đồng Cầu Giấy, Hà Nội</span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-mobile" aria-hidden="true"></i>
+                                    <span>1900.2812</span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                    <span>abctheme205@gmail.com</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-8 clearfix widget-ft">
+                        <div class="col-md-4 float-left">
+                            <h4 class="ft_title" data-toggle="collapse" href="#collapseExample" role="button"
+                                aria-expanded="false" aria-controls="collapseExample">
+                                <span>Cẩm nang sử dụng</span>
+                                <span class="pull-right r_col"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                            </h4>
+                            <div class="collapse" id="collapseExample">
+                                <ul>
+                                    <li><a href="#">Trang chủ</a></li>
+                                    <li><a href="#">Giới thiệu</a></li>
+                                    <li><a href="#">Sản phẩm</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4 float-left">
+                            <h4 class="ft_title" data-toggle="collapse" href="#collapseExample1" role="button"
+                                aria-expanded="false" aria-controls="collapseExample">
+                                <span>Chính sách</span>
+                                <span class="pull-right r_col"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                            </h4>
+                            <div class="collapse" id="collapseExample1">
+                                <ul>
+                                    <li><a href="#">Trang chủ</a></li>
+                                    <li><a href="#">Giới thiệu</a></li>
+                                    <li><a href="#">Sản phẩm</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4 float-left">
+                            <h4 class="ft_title" data-toggle="collapse" href="#collapseExample2" role="button"
+                                aria-expanded="false" aria-controls="collapseExample">
+                                <span>Dịch vụ</span>
+                                <span class="pull-right r_col"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                            </h4>
+                            <div class="collapse" id="collapseExample2">
+                                <ul>
+                                    <li><a href="#">Trang chủ</a></li>
+                                    <li><a href="#">Giới thiệu</a></li>
+                                    <li><a href="#">Sản phẩm</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Nút quay lại trang chủ trong footer -->
+                        <div class="col-md-4 float-left">
+                            <div class="footer__item" onclick="goToHomePage()">Trang chủ</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Hàm loại bỏ dấu trong chuỗi
+        function removeDiacritics(str) {
+            return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        }
+
+        window.onload = function () {
+            // Lấy giá trị tham số query từ URL
+            var urlParams = new URLSearchParams(window.location.search);
+            var searchQuery = urlParams.get('q');
+
+            // Kiểm tra xem có tham số query không
+            if (searchQuery) {
+                // Gọi hàm để tìm kiếm và hiển thị kết quả
+                searchAndDisplayResults(searchQuery);
+            }
+        };
+
+        function searchAndDisplayResults(query) {
+            // Thực hiện tìm kiếm trong dữ liệu sản phẩm ngũ cốc và hiển thị kết quả
+            // Đây là nơi bạn có thể sử dụng AJAX hoặc Fetch API để gửi yêu cầu tìm kiếm đến server
+            // hoặc thực hiện tìm kiếm trên dữ liệu ngay tại đây
+
+            // Dưới đây là một ví dụ đơn giản sử dụng console.log để hiển thị kết quả
+            console.log('Đang tìm kiếm với query:', query);
+
+            // Giả sử có dữ liệu sản phẩm từ kết quả tìm kiếm
+            var searchResults = [
+    {
+        name: 'Xà lách Mỹ hữu cơ',
+        price: '20.000 VND',
+        imageUrl: 'Image/Danhmucsanpham/raucu/xalachmyhuuco.jpg',
+        productUrl: '/xa-lach-my-huu-co-p37597854.html'
+    },
+    {
+        name: 'Khoai lang Nhật hữu cơ',
+        price: '51.000 VND',
+        imageUrl: 'Image/Danhmucsanpham/raucu/khoailangnhat.jpg',
+        productUrl: '/khoai-lang-nhat-huu-co-p37597849.html'
+    },
+    {
+        name: 'Đậu cove Nhật hữu cơ',
+        price: '35.000 VND',
+        imageUrl: 'Image/Danhmucsanpham/raucu/daucovenhat.jpgpath/to/image1.jpg',
+        productUrl: '/dau-cove-nhat-huu-co-p37597843.html'
+    },
+    {
+        name: 'Cần tây hữu cơ',
+        price: '82.500 VND',
+        imageUrl: 'Image/Danhmucsanpham/raucu/cantayhuuco.jpg',
+        productUrl: '/can-tay-huu-co-p37597833.html'
+    },
+    {
+        name: 'Cải ngọt hữu cơ',
+        price: '38.000 VND',
+        imageUrl: 'Image/Danhmucsanpham/raucu/caingothuuco.jpg',
+        productUrl: '/cai-ngot-huu-co-p37597828.html'
+    },
+    {
+        name: 'Cải ngồng hữu cơ',
+        price: '35.000 VND',
+        imageUrl: 'Image/Danhmucsanpham/raucu/caingonghuco.jpg',
+        productUrl: '/path/cai-ngong-huu-co-p37597820.html/to/product2.html'
+    },
+    {
+        name: '4/8 Hạt yến mạch cán mỏng Just Oats nguyên chất ăn liền gói',
+        price: '103.000 VND',
+        imageUrl: 'Image/Danhmucsanpham/ngucoc/hatyen.jpg',
+        productUrl: '/48-hat-yen-mach-can-mong-just-oats-nguyen-chat-an-lien-goi-p37605589.html'
+    },
+    {
+        name: 'Yến mạch ăn liền Quaker hộp 600g',
+        price: '115.000 VND',
+        imageUrl: 'Image/Danhmucsanpham/ngucoc/Yenmach.jpg',
+        productUrl: '/yen-mach-an-lien-quaker-hop-600g-p37605585.html'
+    },
+    {
+        name: 'Ngũ cốc dinh dưỡng Ohh Granola hộp 250g',
+        price: '164.000 VND',
+        imageUrl: 'Image/Danhmucsanpham/ngucoc/ncdinhduong.jpg',
+        productUrl: '/ngu-coc-dinh-duong-ohh-granola-hop-250g-p37605582.html'
+    },
+    {
+        name: 'Ngũ cốc trái cây Calbee gói 700g',
+        price: '280.000 VND',
+        imageUrl: 'Image/Danhmucsanpham/ngucoc/Ngucoctraicay.jpg',
+        productUrl: '/ngu-coc-trai-cay-calbee-goi-700g-p37605577.html'
+    },
+    {
+        name: 'Bánh ngũ cốc Simba Choco Chips',
+        price: '25.000 VND',
+        imageUrl: 'Image/Danhmucsanpham/ngucoc/Banhngucoc.jpg',
+        productUrl: '/banh-ngu-coc-simba-choco-chips-p37605572.html'
+    },
+    {
+        name: 'Ngũ cốc Nestlé Koko Krunch',
+        price: '25.000 VND',
+        imageUrl: 'Image/Danhmucsanpham/ngucoc/Ngucoc.jpg',
+        productUrl: '/ngu-coc-nestle-koko-krunch-p37605569.html'
+    },
+    {
+        name: 'Unique Product 8',
+        price: '120.000 VND',
+        imageUrl: 'path/to/image2.jpg',
+        productUrl: '/path/to/product2.html'
+    },
+    {
+    name: 'Ba rọi heo rút sườn C.P',
+    price: '119.000 VND',
+    imageUrl: 'Image/Danhmucsanpham/thucpham/heorutxuong.jpg',
+    productUrl: '/ba-roi-heo-rut-suon-c.p-p37605609.html'
+},
+{
+    name: 'Nạm bò Úc tươi Trung Đồng hút chân không',
+    price: '84.000 VND',
+    imageUrl: 'Image/Danhmucsanpham/thucpham/nambouc.jpg',
+    productUrl: '/nam-bo-uc-tuoi-trung-dong-hut-chan-khong-p37605605.html'
+},
+{
+    name: 'Vai bò Úc tươi Trung Đồng hút chân không',
+    price: '120.000 VND',
+    imageUrl: 'Image/Danhmucsanpham/thucpham/vaibouc.jpg',
+    productUrl: '/vai-bo-uc-tuoi-trung-dong-hut-chan-khong-p37605593.html'
+},
+{
+    name: 'Tôm thẻ tươi đông lạnh',
+    price: '109.000 VND',
+    imageUrl: 'Image/Danhmucsanpham/thucpham/tomthetuoi.jpg',
+    productUrl: '/tom-the-tuoi-dong-lanh-p37603253.html'
+},
+{
+    name: 'Phi lê cá lóc bông thái lát',
+    price: '89.000 VND',
+    imageUrl: 'Image/Danhmucsanpham/thucpham/caphile.jpg',
+    productUrl: '/phi-le-ca-loc-bong-thai-lat-p37603213.html'
+},
+{
+    name: 'Nghêu Hai Cồi',
+    price: '105.000 VND',
+    imageUrl: 'Image/Danhmucsanpham/thucpham/ngheu.jpg',
+    productUrl: '/ngheu-hai-coi-p37601924.html'
+},
+{
+    name: 'Nho đỏ có hạt Peru',
+    price: '139.000 VND',
+    imageUrl: 'Image/Danhmucsanpham/hoaqua/nhodoperu.jpg',
+    productUrl: '/nho-do-co-hat-peru-p37601635.html'
+},
+{
+    name: 'Thanh Long Ruột Trắng',
+    price: '29.000 VND',
+    imageUrl: 'Image/Danhmucsanpham/hoaqua/thanhlongruottrang.jpg',
+    productUrl: '/thanh-long-ruot-trang-p37601617.html'
+},
+{
+    name: 'Sầu riêng Musang King Malaysia',
+    price: '599.000 VND',
+    imageUrl: 'Image/Danhmucsanpham/hoaqua/saurieng.jpg',
+    productUrl: '/sau-rieng-musang-king-malaysia-p37601594.html'
+},
+{
+    name: 'Bưởi da xanh bọc lưới loại 1',
+    price: '59.000 VND',
+    imageUrl: 'Image/Danhmucsanpham/hoaqua/buoidaxanh.jpg',
+    productUrl: '/buoi-da-xanh-boc-luoi-loai-1-p37601580.html'
+},
+{
+    name: 'Táo xanh Granny Smith Mỹ size 100',
+    price: '129.000 VND',
+    imageUrl: 'Image/Danhmucsanpham/hoaqua/taoxanhmy.jpg',
+    productUrl: '/tao-xanh-granny-smith-my-size-100-p37601558.html'
+},
+{
+    name: 'Cam Cara Mỹ',
+    price: '169.000 VND',
+    imageUrl: 'Image/Danhmucsanpham/hoaqua/cammy.jpg',
+    productUrl: '/cam-cara-my-p37601543.html'
+}
+];
+
+            // Hiển thị kết quả tìm kiếm trong DOM
+            var searchResultsContainer = document.getElementById('searchResultsContainer');
+
+// Xóa nội dung cũ trong container (nếu có)
+searchResultsContainer.innerHTML = '<div class="row"></div>';
+
+// Hiển thị từng sản phẩm trong kết quả
+searchResults.forEach(function (product) {
+    // Kiểm tra xem tên sản phẩm có chứa query không (không quan trọng đến dấu)
+    if (removeDiacritics(product.name.toLowerCase()).includes(removeDiacritics(query.toLowerCase()))) {
+        // Tạo phần tử div chứa thông tin sản phẩm
+        var productDiv = document.createElement('div');
+        productDiv.className = 'col-6 col-md-4 col-lg-3 search-result-item';
+        productDiv.innerHTML = `
+            <div class="product">
+                <div class="img-product" onclick="window.location.href='${product.productUrl}';">
+                    <img src="${product.imageUrl}" alt="${product.name}">
+                </div>
+                <div class="product-body">
+                    <a class="product-name" href="${product.productUrl}">${product.name}</a>
+                    <div class="price">${product.price}</div>
+                </div>
+            </div>
+        `;
+
+        // Thêm sản phẩm vào container
+        searchResultsContainer.querySelector('.row').appendChild(productDiv);
+    }
+});
+            }
+    </script>
+</body>
+
+</html>
