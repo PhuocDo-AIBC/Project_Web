@@ -25,6 +25,9 @@
         function redirectToAdminPage() {
             document.location.assign('Admin/Index.html');
         }
+        function redirectToCustomerPage() {
+            document.location.assign('khachhang.html');
+        }
     </script>
 </head>
 
@@ -92,7 +95,7 @@
                             </li>
                             <li><input name="password" type="password" class="tb validate[required]" id="password" placeholder="Mật khẩu"
                                     value=""></li>
-                            <li class="btns" style="text-align: center;"><button type="button" class="btn btn-secondary btn-lg" style="margin-right: 10px;">Đăng nhập khách hàng </button><span><button type="button" class="btn btn-secondary btn-lg htmlBtn first" onclick="redirectToAdminPage()">Đăng nhập admin </button</span></li>
+                            <li class="btns" style="text-align: center;"><button type="button" class="btn btn-secondary btn-lg" style="margin-right: 10px; " onclick="redirectToCustomerPage()">Đăng nhập khách hàng </button><span><button type="button" class="btn btn-secondary btn-lg htmlBtn first" onclick="redirectToAdminPage()">Đăng nhập admin </button</span></li>
                             <li class= "btns" style="text-align: center; margin-top: 20px;"><a href ="dangki.html"><u>Chưa có tài khoản</u></a></li>
                         </ul>
                     </form>

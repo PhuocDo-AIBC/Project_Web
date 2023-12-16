@@ -59,7 +59,7 @@
     <!-- Reset CSS -->
     <link rel="stylesheet" , href="css/reset.css" />
     <link rel="stylesheet" , href="css/style.css" />
-    <title>Thực phẩm tươi sống</title>
+    <title>Ngũ cốc</title>
     <script>
         function showProducts(page) {
             var products = document.querySelectorAll('.cate-product');
@@ -107,9 +107,8 @@
             detailPriceElement.textContent = price;
            
         }
-        window.onload = function () {
+        window.onload = function() {
             showProducts(1);
-
         };
     </script>
 </head>
@@ -124,17 +123,17 @@
                     <a href="#"><img class="header__logo__img" src="Image/logo.png" alt="" /></a>
                     <!-- Navigation -->
                     <ul class="header__list">
-                        <li class="header__item"><a href="Index.html">Trang chủ</a></li>
+                        <li class="header__item"><a href="khachhang.html">Trang chủ</a></li>
                         <li class="header__item">
                             <a href="#">Sản Phẩm</a>
                             <span class="caret"></span>
                             <ul class="sanpham__list">
-                                <li class="sanpham_item"><a href="raucu.html">Rau củ</a></li>
-                                <li class="sanpham_item"><a href="hoaqua.html">Hoa quả tươi</a></li>
+                                <li class="sanpham_item"><a href="raucuKH.html">Rau củ</a></li>
+                                <li class="sanpham_item"><a href="hoaquaKH.html">Hoa quả tươi</a></li>
                                 <li class="sanpham_item">
-                                    <a href="#">Thực phẩm tươi sống</a>
+                                    <a href="thucphamtuoisongKH.html">Thực phẩm tươi sống</a>
                                 </li>
-                                <li class="sanpham_item"><a href="ngucoc.html">Ngũ cốc</a></li>
+                                <li class="sanpham_item"><a href="#">Ngũ cốc</a></li>
                             </ul>
                         </li>
                         <li class="header__item"><a href="#">Tin tức</a></li>
@@ -144,15 +143,15 @@
                     <!-- Action -->
                     <div class="header__action__container">
                         <div>
-                            <a href ="#"><i class="fa-solid fa-arrow-rotate-left"></i></a>
+                            <a href ="lichsu.html"><i class="fa-solid fa-arrow-rotate-left"></i></a>
                           </div>
                         <div class="action__cart-bag">
-                            <a href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+                            <a href ="giohang.html"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
                             
                         </div>
                         <div class="action__user">
-                            <a href="dangnhap.html"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
-                          </div>
+                            <a href="dangnhap.html">Nhóm 21</a>
+                        </div>
                           <div class="action_search">
                             <i class="fa fa-search iconSearchDesktop" aria-hidden="true" data-metatip="true" onclick="redirectToSearch()"></i>
                             <div class="dropdown-content">
@@ -168,144 +167,149 @@
     </div>
     <div class="bread-crumb text-center bread-crumb_background"
         style=" background-image: url('Image/We/backgroundanhmuc.png');">
-        <h3>Thực phẩm tươi sống</h3>
+        <h3>Ngũ cốc</h3>
     </div>
-
-    <div id = "list_product" class="container">
+    <div id = 'list_product' class="container">
 
         <div class="row">
-            <div id = "product_1" class="col-6 col-md-4 col-lg-3">
+            <div id ="product_1" class="col-6 col-md-4 col-lg-3">
                 <div class="product cate-product text-center">
 
                     <div class="img-product">
 
                         <img data-sizes="auto" class="card-img-top lazyautosizes ls-is-cached lazyloaded"
-                            src="Image\Danhmucsanpham\thucpham\heorutxuong.jpg"
-                            data-src="Image\Danhmucsanpham\thucpham\heorutxuong.jpg"
-                            alt="Ba rọi heo rút sườn C.P" sizes="218px">
+                            src="Image\Danhmucsanpham\ngucoc\hatyen.jpg"
+                            data-src="Image\Danhmucsanpham\ngucoc\hatyen.jpg"
+                            alt="4/8 Hạt yến mạch cán mỏng Just Oats nguyên chất ăn liền gói" sizes="218px">
                     </div>
                     <div class="product-body">
                         <div>
-                            <a class="product-name" href="#" onclick="showDetail('detail_product','list_product'), Detail('product_1')">Ba rọi heo rút sườn
-                                C.P</a>
+                            <a class="product-name"
+                                href="#" onclick="showDetail('detail_product','list_product'), Detail('product_1')">4/8
+                                Hạt yến mạch cán mỏng Just Oats nguyên chất ăn liền gói</a>
                         </div>
                         <div class="price-box">
-                            <span class="price tp_product_price">119.000 VND</span>
+                            <span class="price tp_product_price">103.000 VND</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div  id = "product_2" class="col-6 col-md-4 col-lg-3">
+            <div id ="product_2" class="col-6 col-md-4 col-lg-3">
                 <div class="product cate-product text-center">
 
                     <div class="img-product">
 
                         <img data-sizes="auto" class="card-img-top lazyautosizes ls-is-cached lazyloaded"
-                            src="Image\Danhmucsanpham\thucpham\nambouc.jpg"
-                            data-src="Image\Danhmucsanpham\thucpham\nambouc.jpg"
-                            alt="Nạm bò Úc tươi Trung Đồng hút chân không" sizes="218px">
+                            src="Image\Danhmucsanpham\ngucoc\Yenmach.jpg"
+                            data-src="Image\Danhmucsanpham\ngucoc\Yenmach.jpg"
+                            alt="Yến mạch ăn liền Quaker hộp 600g" sizes="218px">
                     </div>
+
                     <div class="product-body">
                         <div>
-                            <a class="product-name" href="#" onclick="showDetail('detail_product','list_product'), Detail('product_2')">Nạm
-                                bò Úc tươi Trung Đồng hút chân không</a>
+                            <a class="product-name" href="#" onclick="showDetail('detail_product','list_product'), Detail('product_2')">Yến mạch
+                                ăn liền Quaker hộp 600g</a>
                         </div>
                         <div class="price-box">
-                            <span class="price tp_product_price">84.000 VND</span>
+                            <span class="price tp_product_price">115.000 VND</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div  id = "product_3" class="col-6 col-md-4 col-lg-3">
+            <div id ="product_3"  class="col-6 col-md-4 col-lg-3">
                 <div class="product cate-product text-center">
 
                     <div class="img-product">
 
                         <img data-sizes="auto" class="card-img-top lazyautosizes ls-is-cached lazyloaded"
-                            src="Image\Danhmucsanpham\thucpham\vaibouc.jpg"
-                            data-src="Image\Danhmucsanpham\thucpham\vaibouc.jpg"
-                            alt="Vai bò Úc tươi Trung Đồng hút chân không" sizes="218px">
+                            src="Image\Danhmucsanpham\ngucoc\ncdinhduong.jpg"
+                            data-src="Image\Danhmucsanpham\ngucoc\ncdinhduong.jpg"
+                            alt="Ngũ cốc dinh dưỡng Ohh Granola hộp 250g" sizes="218px">
                     </div>
+
                     <div class="product-body">
                         <div>
-                            <a class="product-name" href="#" onclick="showDetail('detail_product','list_product'), Detail('product_3')">Vai
-                                bò Úc tươi Trung Đồng hút chân không</a>
+                            <a class="product-name" href="#" onclick="showDetail('detail_product','list_product'), Detail('product_3')">Ngũ
+                                cốc dinh dưỡng Ohh Granola hộp 250g</a>
                         </div>
                         <div class="price-box">
-                            <span class="price tp_product_price">120.000 VND</span>
+                            <span class="price tp_product_price">164.000 VND</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div  id = "product_4" class="col-6 col-md-4 col-lg-3">
+            <div id ="product_4" class="col-6 col-md-4 col-lg-3">
                 <div class="product cate-product text-center">
 
                     <div class="img-product">
 
                         <img data-sizes="auto" class="card-img-top lazyautosizes ls-is-cached lazyloaded"
-                            src="Image\Danhmucsanpham\thucpham\tomthetuoi.jpg"
-                            data-src="Image\Danhmucsanpham\thucpham\tomthetuoi.jpg"
-                            alt="Tôm thẻ tươi đông lạnh" sizes="218px">
+                            src="Image\Danhmucsanpham\ngucoc\Ngucoctraicay.jpg"
+                            data-src="Image\Danhmucsanpham\ngucoc\Ngucoctraicay.jpg"
+                            alt="Ngũ cốc trái cây Calbee gói 700g" sizes="218px">
                     </div>
+
+                   
                     <div class="product-body">
                         <div>
-                            <a class="product-name" href="#" onclick="showDetail('detail_product','list_product'), Detail('product_4')">Tôm thẻ tươi đông
-                                lạnh</a>
+                            <a class="product-name" href="#" onclick="showDetail('detail_product','list_product'), Detail('product_4')">Ngũ cốc trái
+                                cây Calbee gói 700g</a>
                         </div>
                         <div class="price-box">
-                            <span class="price tp_product_price">109.000 VND</span>
+                            <span class="price tp_product_price">280.000 VND</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div  id = "product_5" class="col-6 col-md-4 col-lg-3">
+            <div id ="product_5" class="col-6 col-md-4 col-lg-3">
                 <div class="product cate-product text-center">
 
                     <div class="img-product">
 
                         <img data-sizes="auto" class="card-img-top lazyautosizes ls-is-cached lazyloaded"
-                            src="Image\Danhmucsanpham\thucpham\caphile.jpg"
-                            data-src="Image\Danhmucsanpham\thucpham\caphile.jpg"
-                            alt="Phi lê cá lóc bông thái lát" sizes="218px">
+                            src="Image\Danhmucsanpham\ngucoc\Banhngucoc.jpg"
+                            data-src="Image\Danhmucsanpham\ngucoc\Banhngucoc.jpg"
+                            alt="Bánh ngũ cốc Simba Choco Chips" sizes="218px">
                     </div>
+
                     <div class="product-body">
                         <div>
-                            <a class="product-name" href="#" onclick="showDetail('detail_product','list_product'), Detail('product_5')">Phi lê cá lóc
-                                bông thái lát</a>
+                            <a class="product-name" href="#" onclick="showDetail('detail_product','list_product'), Detail('product_5')">Bánh ngũ cốc
+                                Simba Choco Chips</a>
                         </div>
                         <div class="price-box">
-                            <span class="price tp_product_price">89.000 VND</span>
+                            <span class="price tp_product_price">25.000 VND</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id = "product_6" class="col-6 col-md-4 col-lg-3">
+            <div id ="product_6" class="col-6 col-md-4 col-lg-3">
                 <div class="product cate-product text-center">
 
                     <div class="img-product">
 
                         <img data-sizes="auto" class="card-img-top lazyautosizes ls-is-cached lazyloaded"
-                            src="Image\Danhmucsanpham\thucpham\ngheu.jpg"
-                            data-src="Image\Danhmucsanpham\thucpham\ngheu.jpg"
-                            alt="Nghêu Hai Cồi" sizes="218px">
+                            src="Image\Danhmucsanpham\ngucoc\Ngucoc.jpg"
+                            data-src="Image\Danhmucsanpham\ngucoc\Ngucoc.jpg"
+                            alt="Ngũ cốc Nestlé Koko Krunch" sizes="218px">
                     </div>
 
                     <div class="product-body">
                         <div>
-                            <a class="product-name" href="#" onclick="showDetail('detail_product','list_product'), Detail('product_6')">Nghêu Hai Cồi</a>
+                            <a class="product-name" href="#" onclick="showDetail('detail_product','list_product'), Detail('product_6')">Ngũ cốc Nestlé
+                                Koko Krunch</a>
                         </div>
                         <div class="price-box">
-                            <span class="price tp_product_price">105.000 VND</span>
+                            <span class="price tp_product_price">25.000 VND</span>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
         <nav aria-label="Page navigation example">
             <ul class="pagination">
@@ -323,9 +327,9 @@
               </li>
             </ul>
           </nav>
-    </div>
-      <!--Chi tiết-->
-      <div id = "detail_product" class="container tp_product_detail" style="display: none;">
+        </div>
+         <!--Chi tiết-->
+    <div id = "detail_product" class="container tp_product_detail" style="display: none;">
         <div class="row">
             <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                 <div class="img-main">
@@ -401,82 +405,81 @@
         </div>
     
     </div>
-    <!--Phần footer-->
-    <div class="footer_">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 widget_first_childs">
-                    
-                    <div class="logo_footer">
-                        <a href="/">
-                            <img src="Image\logo.png" alt="Logo">
-                        </a>
-                    </div>
-                    <div class="contact_footer">
-                        <ul>
-                            <li>
-                                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                <span>30 Phạm Văn Đồng Cầu Giấy, Hà Nội</span>
-                            </li>
-                            <li>
-                                <i class="fa fa-mobile" aria-hidden="true"></i>
-                                <span>1900.2812</span>
-                            </li>
-                            <li>
-                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                                <span>abctheme205@gmail.com</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-8 clearfix widget-ft">
-                    <div class="col-md-4 float-left">
-                        <h4 class="ft_title" data-toggle="collapse" href="#collapseExample" role="button"
-                            aria-expanded="false" aria-controls="collapseExample">
-                            <span>Cẩm nang sử dụng</span>
-                            <span class="pull-right r_col"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                        </h4>
-                        <div class="collapse" id="collapseExample">
+        <!--Phần footer-->
+        <div class="footer_">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 widget_first_childs">
+                        <div class="logo_footer">
+                            <a href="/">
+                                <img src="Image\logo.png" alt="Logo">
+                            </a>
+                        </div>
+                        <div class="contact_footer">
                             <ul>
-                                <li><a href="#">Trang chủ</a></li>
-                                <li><a href="#">Giới thiệu</a></li>
-                                <li><a href="#">Sản phẩm</a></li>
+                                <li>
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    <span>30 Phạm Văn Đồng Cầu Giấy, Hà Nội</span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-mobile" aria-hidden="true"></i>
+                                    <span>1900.2812</span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                    <span>abctheme205@gmail.com</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-4 float-left">
-                        <h4 class="ft_title" data-toggle="collapse" href="#collapseExample1" role="button"
-                            aria-expanded="false" aria-controls="collapseExample">
-                            <span>Chính sách</span>
-                            <span class="pull-right r_col"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                        </h4>
-                        <div class="collapse" id="collapseExample1">
-                            <ul>
-                                <li><a href="#">Trang chủ</a></li>
-                                <li><a href="#">Giới thiệu</a></li>
-                                <li><a href="#">Sản phẩm</a></li>
-                            </ul>
+                    <div class="col-md-8 clearfix widget-ft">
+                        <div class="col-md-4 float-left">
+                            <h4 class="ft_title" data-toggle="collapse" href="#collapseExample" role="button"
+                                aria-expanded="false" aria-controls="collapseExample">
+                                <span>Cẩm nang sử dụng</span>
+                                <span class="pull-right r_col"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                            </h4>
+                            <div class="collapse" id="collapseExample">
+                                <ul>
+                                    <li><a href="#">Trang chủ</a></li>
+                                    <li><a href="#">Giới thiệu</a></li>
+                                    <li><a href="#">Sản phẩm</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 float-left">
-                        <h4 class="ft_title" data-toggle="collapse" href="#collapseExample2" role="button"
-                            aria-expanded="false" aria-controls="collapseExample">
-                            <span>Dịch vụ</span>
-                            <span class="pull-right r_col"><i class="fa fa-plus" aria-hidden="true"></i></span>
-                        </h4>
-                        <div class="collapse" id="collapseExample2">
-                            <ul>
-                                <li><a href="#">Trang chủ</a></li>
-                                <li><a href="#">Giới thiệu</a></li>
-                                <li><a href="#">Sản phẩm</a></li>
-                            </ul>
+                        <div class="col-md-4 float-left">
+                            <h4 class="ft_title" data-toggle="collapse" href="#collapseExample1" role="button"
+                                aria-expanded="false" aria-controls="collapseExample">
+                                <span>Chính sách</span>
+                                <span class="pull-right r_col"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                            </h4>
+                            <div class="collapse" id="collapseExample1">
+                                <ul>
+                                    <li><a href="#">Trang chủ</a></li>
+                                    <li><a href="#">Giới thiệu</a></li>
+                                    <li><a href="#">Sản phẩm</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4 float-left">
+                            <h4 class="ft_title" data-toggle="collapse" href="#collapseExample2" role="button"
+                                aria-expanded="false" aria-controls="collapseExample">
+                                <span>Dịch vụ</span>
+                                <span class="pull-right r_col"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                            </h4>
+                            <div class="collapse" id="collapseExample2">
+                                <ul>
+                                    <li><a href="#">Trang chủ</a></li>
+                                    <li><a href="#">Giới thiệu</a></li>
+                                    <li><a href="#">Sản phẩm</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
+    
     </div>
     </div>
 
