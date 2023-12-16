@@ -7,7 +7,47 @@
     <link rel="preload" href="https://web.nvnstatic.net/tp/T0307/font/Quicksand-VariableFont_wght.ttf" as="font"
         type="font/ttf" crossorigin />
     <link rel="stylesheet" , href="Fonts/fontawesome-free-6.4.2-web/css/all.min.css " />
-
+    <style>
+        .action_search {
+            display: flex;
+            align-items: center;
+            margin-right: 20px; /* Điều chỉnh khoảng cách giữa thanh tìm kiếm và các phần khác trong header */
+        }
+  
+        .action_search input {
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            margin-right: 5px; /* Khoảng cách giữa ô nhập liệu và nút tìm kiếm */
+        }
+  
+        .action_search button {
+            background-color: #4CAF50; /* Màu nền nút tìm kiếm */
+            color: white; /* Màu chữ trên nút tìm kiếm */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: yellow;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border-radius: 20px;
+        }
+        .action__search--input {
+          width: 200px;
+          height: 40px;
+          font-family: serif;
+        }
+        .action_search:hover .dropdown-content {
+          display: flex;
+          justify-content: space-between;
+        }
+    </style>
     <!-- CSS Base-->
     <link rel="stylesheet" href="cssbody/row.css" />
     <link rel="stylesheet" href="cssbody/owlCarousel.css" />
@@ -109,9 +149,12 @@
                         <div class="action__user">
                             <a href="dangnhap.html"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
                           </div>
-                        <div class="action_search">
-                            <i class="fa fa-search iconSearchDesktop" aria-hidden="true" data-metatip="true"></i>
-                        </div>
+                          <div class="action_search">
+                            <i class="fa fa-search iconSearchDesktop" aria-hidden="true" data-metatip="true" onclick="redirectToSearch()"></i>
+                            <div class="dropdown-content">
+                                <input type="text" id="searchInput" placeholder="Tìm kiếm.." name="search" class="action__search--input">
+                                <button onclick="redirectToSearch()"><i class="fa fa-search"></i></button>
+                            </div>
                     </div>
                 </nav>
             </div>
@@ -445,6 +488,15 @@
         id="uctk" name="uctk">
     <input type="hidden" id="clienIp" value="123.20.80.114">
     <div id="mm-blocker" class="mm-slideout"></div>
+    <script>
+        function redirectToSearch() {
+         // Lấy giá trị từ ô input
+         var searchQuery = document.getElementById('searchInput').value;
+ 
+         // Chuyển hướng đến trang search.html với tham số truy vấn 'q'
+         window.location.href = '/search.html?q=' + encodeURIComponent(searchQuery);
+        }
+   </script>
 </body>
 
 </html>
