@@ -107,6 +107,10 @@
             detailPriceElement.textContent = price;
            
         }
+        function showNotification(){
+            alert("Chưa đăng nhập!");
+            window.location.href = "dangnhap.html";
+        }
         window.onload = function() {
             showProducts(1);
         };
@@ -392,7 +396,7 @@
                         </div>
                         
                         <button type="button" name="add" id="addToCart" title="" ck="0" psid="37597854" selid="37597854"
-                            class="unsel btn" data-original-title="Vui lòng chọn màu sắc hoặc kích cỡ!">
+                            class="unsel btn" data-original-title="Vui lòng chọn màu sắc hoặc kích cỡ!" onclick="showNotification()">
                             <span>Thêm vào giỏ hàng</span>
                         </button>
                     </div>
